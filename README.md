@@ -13,6 +13,7 @@ To run the app:
 ### URLs públicas  📍️
 
 Path | Description
+| --- | --- |
 | / | Distinta si estás logeado o no |
 | /signup | Formulario de registro |
 | /login | Formulario para iniciar sesión|
