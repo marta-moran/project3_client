@@ -7,14 +7,17 @@ import NavBar from '../NavBar/NavBar';
 function ComponentsApp() {
     return (
         <div>
-            <NavBar></NavBar>
+            <NavBar>
+            </NavBar>
+
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/login' element={<LoginPage />} />
             </Routes>
-        </div>
+        </div >
     )
 }
 
 export default ComponentsApp
+
 
