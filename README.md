@@ -13,9 +13,13 @@ To run the app:
 ### URLs públicas  📍️
 
 Path | Description
-| -- | -- |
-
-
+| --- | --- |
+| / | Distinta si estás logeado o no |
+| /signup | Formulario de registro |
+| /login | Formulario para iniciar sesión|
+| /profile/:id | Ver tu perfil o el de otra persona |
+| /matches | Ver matches del usuario |
+| /chat | ¿¿?? acceso al chat | 
 
 
 ### Despliegue 📦️
