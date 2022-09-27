@@ -11,7 +11,9 @@ import SignupPage from '../../pages/SignUpPage/Signup';
 function ComponentsApp() {
     return (
         <div>
-            <NavBar></NavBar>
+            <NavBar>
+            </NavBar>
+
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/login' element={<LoginPage />} />
@@ -22,9 +24,10 @@ function ComponentsApp() {
 
 
             </Routes>
-        </div>
+        </div >
     )
 }
 
 export default ComponentsApp
+
 
