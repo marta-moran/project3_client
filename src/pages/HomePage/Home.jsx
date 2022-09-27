@@ -1,6 +1,10 @@
+import Slider from "../../components/Slider/Slider"
+
 function Home() {
     return (
-        <h1>Funciona la ruta /home</h1>
+        <div>
+            <Slider></Slider>
+        </div>
     )
 }
 
