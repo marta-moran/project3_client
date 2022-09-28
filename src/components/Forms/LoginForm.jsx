@@ -23,7 +23,6 @@ function LoginForm() {
         setUser({ ...user, [name]: value });
     }
 
-
     return (
         <div className='container'>
             <Form onSubmit={login}>

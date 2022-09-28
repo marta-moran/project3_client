@@ -4,21 +4,32 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './logofake.svg'
 
+import * as React from 'react';
+import LoginIcon from '@mui/icons-material/Login';
+import './NavBar.css'
+
 function NavBar() {
     return (
         <div>
-            <Navbar>
+            <Navbar className="navBar">
                 <Container>
-                    <img className="me-1" src={logo} alt='' style={{ width: '2%' }}></img>
-                    <Navbar.Brand as="span">El tinder</Navbar.Brand>
+                    <img className="me-1" src={logo} alt='' style={{ width: '15%' }}></img>
                     <Nav className='me-auto'>
-                        <Nav.Link as='span'>
-                            <Link className='link-react' to="/">Home</Link>
-                        </Nav.Link>
-                        <Nav.Link as='span'>
-                            <Link className='link-react' to="/login">Login</Link>
-                        </Nav.Link>
-                        <Nav.Link as='span'>
+                        <Navbar.Brand as="span">
+                            <Link className='link-react' to="/"><span>Pinter</span></Link>
+                        </Navbar.Brand>
+                    </Nav>
+                    <div className="flex-nav">
+                        <Nav className='me-auto'>
+                            <Nav.Link as='span'>
+                                <Link className='link-react me-2' to="/login">
+                                    <LoginIcon sx={{ fontSize: 40, color: 'pink' }}></LoginIcon>
+                                </Link>
+                            </Nav.Link>
+                        </Nav>
+                    </div>
+
+                    {/* <Nav.Link as='span'>
                             <Link className='link-react' to="/signup">Signup</Link>
                         </Nav.Link>
                         <Nav.Link as='span'>
@@ -29,8 +40,8 @@ function NavBar() {
                         </Nav.Link>
                         <Nav.Link as='span'>
                             <Link className='link-react' to="/chat">Chat</Link>
-                        </Nav.Link>
-                    </Nav>
+                        </Nav.Link> */}
+
                 </Container>
             </Navbar>
         </div>
