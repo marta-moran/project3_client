@@ -5,7 +5,7 @@ class AuthAxios extends InitAxios {
     super('/');
   }
 
-  registro(body) {
+  signup(body) {
     return this.axios.post('/signup', body).then((response) => response.data);
   }
 
