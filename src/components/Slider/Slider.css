@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 7vh;
+    margin-top: 3vh;
 }
 
 .slider {
@@ -32,4 +32,8 @@
     height: 30px;
     border-radius: 50%;
     background-color: pink;
+}
+
+.carousel-item {
+    height: 200px;
 }
