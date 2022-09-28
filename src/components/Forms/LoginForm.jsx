@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Navigate, useNavigate } from 'react-router-dom';
 import authAxios from '../../services/authAxios';
+import { AuthContext } from '../../context/auth.context';
 
 function LoginForm() {
 
     const [user, setUser] = useState({});
-    // const {storeToken, authentication} = useContext(AuthContext)
+    const { storeToken, authentication } = useContext(AuthContext)
 
 
     const login = (eventHTML) => {
@@ -15,8 +16,8 @@ function LoginForm() {
         authAxios.login(user).then((response) => {
             console.log(response)
 
-            //storeToken(response.token)
-            // authentication
+            storeToken(response.token)
+            authentication()
         })
     }
 

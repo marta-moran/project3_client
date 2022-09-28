@@ -4,13 +4,13 @@ class UserAxios extends InitAxios {
     constructor() {
         super('/user');
     }
-    // me(token) {
-    //     return this.axios.get('/me', {
-    //         headers: {
-    //             'authorization': `Bearer ${token}`
-    //         }
-    //     }).then((response) => response.data);
-    // }
+    me(token) {
+        return this.axios.get('/me', {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }).then((response) => response.data);
+    }
 
     edit(id) {
         return this.axios.get(`/edit/${id}`).then((response) => response.data)
