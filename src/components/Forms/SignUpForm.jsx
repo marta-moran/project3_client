@@ -27,9 +27,6 @@ const SignUpForm = () => {
 
     };
 
-
-
-
     return (
 
         <Form onSubmit={signUp}>
@@ -54,12 +51,6 @@ const SignUpForm = () => {
                 <Form.Label>Género</Form.Label>
                 <Form.Control type='text' name='gender' placeholder='Masculino, femenino...' onChange={createNewUser} />
             </Form.Group>
-
-            <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
-                <Form.Label>Dibujo de perfil</Form.Label>
-                <Form.Control type='' name='picture' placeholder='' onChange={createNewUser} />
-            </Form.Group>
-
             <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
                 <Form.Label>Descripción</Form.Label>
                 <Form.Control size='lg' type='text' name='description' placeholder='Ver películas de Steven Seagal, bailar la música del telediario...' onChange={createNewUser} />
@@ -67,6 +58,10 @@ const SignUpForm = () => {
             <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
                 <Form.Label>Aficiones</Form.Label>
                 <Form.Control size='lg' type='text' name='preferences' placeholder='Croquetas, Baile...' onChange={createNewUser} />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
+                <Form.Label>Dibujo de perfil</Form.Label>
+                <Form.Control type='' name='picture' placeholder='' onChange={createNewUser} />
             </Form.Group>
             <Button variant='primary' type='submit' onChange={signUp}>
                 Registrarse
