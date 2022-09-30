@@ -22,6 +22,7 @@ function Home() {
 
     console.log(newUsers)
     return (
+        //map
         user ? <Card user={user}></Card> : <Slider></Slider>
 
         //user ? componente card : slider
