@@ -4,6 +4,7 @@ class UserAxios extends InitAxios {
     constructor() {
         super('/user');
     }
+
     me(token) {
         return this.axios.get('/me', {
             headers: {
@@ -19,7 +20,7 @@ class UserAxios extends InitAxios {
         return this.axios.get(`/edit/${id}`).then((response) => response.data)
     }
 
-    delete(id) {
+    delete(token, id) {
         return this.axios.get(`/delete/${id}`).then((response) => response.data)
     }
 
@@ -43,17 +44,15 @@ class UserAxios extends InitAxios {
     getAllPeople() {
         return this.axios.get('/').then(({ data }) => data)
     }
-
     getOnePerson(id) {
         return this.axios.get(`/${id}`).then((response) => response.data)
     }
 
-
     static getInstance() {
         if (!this.instance) {
             this.instance = new UserAxios();
+            console.log(this.instance)
         }
-        console.log(this.instance);
         return this.instance;
     }
 

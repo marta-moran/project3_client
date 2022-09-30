@@ -1,10 +1,14 @@
-import Simple from "../../components/Home/Card/Card"
+import Canvas from "../../components/Canvas/Canvas"
 
 const MatchesPage = () => {
 
     return (
+        <>
+            <h1>holaaa</h1>
 
-        <h1>Estás en /Matches</h1>
+            <Canvas></Canvas>
+        </>
+
 
     )
 

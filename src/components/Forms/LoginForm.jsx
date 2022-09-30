@@ -1,14 +1,15 @@
 import { useState, useContext } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
 import authAxios from '../../services/authAxios';
 import { AuthContext } from '../../context/auth.context';
+import './Forms.css'
+import { Link } from 'react-router-dom';
+import MultiButton from '../Buttons/MultiButton'
 
 function LoginForm() {
 
     const [user, setUser] = useState({});
     const { storeToken, authentication } = useContext(AuthContext)
-
 
     const login = (eventHTML) => {
 
@@ -27,9 +28,9 @@ function LoginForm() {
     }
 
     return (
-        <div className='container'>
+        <div className='main-content'>
             <Form onSubmit={login}>
-                <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
+                <Form.Group className='mb-3' >
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         type='text'
@@ -38,14 +39,15 @@ function LoginForm() {
                         name='email'
                     />
                 </Form.Group>
-                <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
+                <Form.Group className='mb-3'>
                     <Form.Label>Password</Form.Label>
                     <Form.Control type='password' name='password' onChange={loginUser} placeholder='your password' />
                 </Form.Group>
-                <Button variant='primary' type='submit'>
+                <MultiButton className="submit-button" nameButton={"Login"}>
                     Login
+                </MultiButton>
 
-                </Button>
+                <p className='link-signup'>¿No tienes una cuenta?<Link to="/signup">Regístrate</Link></p>
             </Form>
         </div>
     )
