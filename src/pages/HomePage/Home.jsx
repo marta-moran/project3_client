@@ -8,7 +8,7 @@ function Home() {
     // const { user, isLoading, isLoggedIn, logOut } = useContext(AuthContext);
     const { user, storeToken, authentication } = useContext(AuthContext)
 
-    const [newUsers, setNewUsers] = useState({})
+    const [newUsers, setNewUsers] = useState([])
 
     useEffect(() => {
         authentication()
@@ -24,13 +24,18 @@ function Home() {
 
 
     return (
-        //map
-        // user ? <Card user={user}></Card> : <Slider></Slider>
-        <div>
 
-            <h1>{user.username}</h1>
+        user ?
+            newUsers.map((user, index) => {
+                console.log(index)
+                return (
+                    <div key={user._id}>
+                        <Card key={user.email} user={user} index={index}></Card>
+                    </div>
 
-        </div>
+                )
+            })
+            : <Slider></Slider>
 
 
 
