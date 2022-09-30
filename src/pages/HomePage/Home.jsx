@@ -3,6 +3,9 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/auth.context';
 
 import userAxios from "../../services/userAxios";
+import Card from "../../components/Home/Card/Card";
+import LikeButton from "../../components/Buttons/LikeButton";
+import '../../components/Buttons/Buttons.css'
 
 function Home() {
     // const { user, isLoading, isLoggedIn, logOut } = useContext(AuthContext);
@@ -25,19 +28,27 @@ function Home() {
 
     return (
 
-        user ?
-            newUsers.map((user, index) => {
-                console.log(index)
-                return (
-                    <div key={user._id}>
-                        <Card key={user.email} user={user} index={index}></Card>
-                    </div>
-
-                )
-            })
-            : <Slider></Slider>
+        <>
+            {user ?
+                newUsers.map((user, index) => {
+                    console.log(index)
+                    return (
+                        <>
+                            <div key={user._id}>
+                                <Card key={user.email} user={user} index={index}></Card>
 
 
+                            </div>
+                        </>
+                    )
+                })
+                : <Slider></Slider>}
+
+
+            <div className="likeButton">
+                <LikeButton></LikeButton>
+            </div>
+        </>
 
     )
 }
