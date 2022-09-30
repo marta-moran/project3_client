@@ -26,7 +26,7 @@ function NavBar() {
                             <Nav.Link as='span'>
                                 <Link className='link-react me-2' to="/login">
                                     {
-                                        user ? <LogoutIcon sx={{ fontSize: 40, color: 'black' }} onClick={() => logOut()}></LogoutIcon> : <LoginIcon sx={{ fontSize: 40, color: 'pink' }}></LoginIcon>
+                                        user ? <LogoutIcon sx={{ fontSize: 40, color: 'purple' }} onClick={() => logOut()}></LogoutIcon> : <LoginIcon sx={{ fontSize: 40, color: 'pink' }}></LoginIcon>
                                     }
 
                                 </Link>
