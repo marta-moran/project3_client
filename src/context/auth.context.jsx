@@ -24,7 +24,6 @@ export const AuthProvider = (props) => {
 
     const authentication = () => {
         const token = localStorage.getItem(LOCALSTORAGE_TOKEN);
-        console.log("holaaaaaa");
         if (token) {
             userAxios
                 .me(token)
