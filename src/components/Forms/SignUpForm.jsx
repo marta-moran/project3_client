@@ -3,6 +3,8 @@ import { Button, Form } from 'react-bootstrap'
 import authAxios from '../../services/authAxios';
 
 
+
+
 const SignUpForm = () => {
     const [user, setUser] = useState({})
 
@@ -28,7 +30,6 @@ const SignUpForm = () => {
     };
 
     return (
-
         <Form onSubmit={signUp}>
             <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
                 <Form.Label>Nombre</Form.Label>
@@ -62,6 +63,7 @@ const SignUpForm = () => {
             <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
                 <Form.Label>Dibujo de perfil</Form.Label>
                 <Form.Control type='' name='picture' placeholder='' onChange={createNewUser} />
+
             </Form.Group>
             <Button variant='primary' type='submit' onChange={signUp}>
                 Registrarse

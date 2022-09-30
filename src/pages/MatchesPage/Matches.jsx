@@ -1,8 +1,10 @@
+import Simple from "../../components/Home/Card/Card"
+
 const MatchesPage = () => {
 
     return (
 
-        <h1>Funciona ruta /Matches</h1>
+        <h1>Estás en /Matches</h1>
 
     )
 

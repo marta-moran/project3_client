@@ -8,8 +8,11 @@ class UserAxios extends InitAxios {
         return this.axios.get('/me', {
             headers: {
                 'authorization': `Bearer ${token}`
+
             }
         }).then((response) => response.data);
+
+
     }
 
     edit(id) {
@@ -35,6 +38,14 @@ class UserAxios extends InitAxios {
     /* pensar mejor */
     getProfile() {
         return this.axios.get(`/profile`).then((response) => response.data)
+    }
+
+    getAllPeople() {
+        return this.axios.get('/').then(({ data }) => data)
+    }
+
+    getOnePerson(id) {
+        return this.axios.get(`/${id}`).then((response) => response.data)
     }
 
 

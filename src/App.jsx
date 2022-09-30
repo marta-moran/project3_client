@@ -1,11 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import ComponentsApp from './components/ComponentsApp/ComponentsApp';
+import NavBar from './components/NavBar/NavBar';
+import AppRoutes from './components/routes/AppRoutes';
 
 function App() {
   return (
     <div className="App">
-      <ComponentsApp />
+      <NavBar />
+      <AppRoutes />
     </div>
   );
 }

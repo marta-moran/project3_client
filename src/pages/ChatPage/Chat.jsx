@@ -1,6 +1,10 @@
+import Canvas from "../../components/Canvas/Canvas"
+
 const ChatPage = () => {
+
     return (
-        <h1>Funciona la ruta /chat</h1>
+
+        <Canvas />
     )
 }
 
