@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/auth.context';
 import Card from "../../components/Home/Card/Card"
 import userAxios from "../../services/userAxios";
+import './HomeStyle.css'
 
 function Home() {
     // const { user, isLoading, isLoggedIn, logOut } = useContext(AuthContext);
@@ -19,25 +20,18 @@ function Home() {
             .catch(error => console.log(error))
     }, [])
 
-
-    console.log(newUsers)
     return (
 
         user ?
-            newUsers.map((user, index) => {
-                console.log(index)
+            newUsers.map((user) => {
                 return (
-                    <div key={user._id}>
-                        <Card key={user.email} user={user} index={index}></Card>
+                    <div key={user._id} className="flex-cards">
+                        <Card key={user.email} user={user}></Card>
                     </div>
 
                 )
             })
             : <Slider></Slider>
-
-        //user ? componente card : slider
-
-
     )
 }
 
