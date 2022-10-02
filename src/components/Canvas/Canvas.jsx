@@ -1,13 +1,13 @@
-import React from "react";
-import CanvasDraw from "react-canvas-draw";
-import './Canvas.css'
+// import React from "react";
+// import CanvasDraw from "react-canvas-draw";
+// import './Canvas.css'
 
-function Canvas() {
+// function Canvas() {
 
-    return (
-        <CanvasDraw className="sortable-handler" ></CanvasDraw>
-    )
+//     return (
+//         <CanvasDraw className="sortable-handler" ></CanvasDraw>
+//     )
 
-}
+// }
 
-export default Canvas
+// export default Canvas

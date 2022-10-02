@@ -1,9 +1,11 @@
 import Slider from "../../components/Home/Slider/Slider"
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/auth.context';
-import Card from "../../components/Home/Card/Card"
+
 import userAxios from "../../services/userAxios";
-import './HomeStyle.css'
+import Card from "../../components/Home/Card/Card";
+import LikeButton from "../../components/Buttons/LikeButton";
+import '../../components/Buttons/Buttons.css'
 
 function Home() {
     // const { user, isLoading, isLoggedIn, logOut } = useContext(AuthContext);
@@ -15,22 +17,47 @@ function Home() {
         userAxios.getAllPeople()
             .then((users) => {
                 setNewUsers(users)
+
             })
             .catch(error => console.log(error))
     }, [])
+    console.log(newUsers)
+
+
 
     return (
 
+<<<<<<< HEAD
         user ?
             newUsers.map((oneUser) => {
                 return (
                     <div key={oneUser._id} className="flex-cards">
                         <Card key={oneUser.email} oneUser={oneUser}></Card>
                     </div>
+=======
+        <>
+            {user ?
+                newUsers.map((user, index) => {
+                    console.log(index)
+                    return (
+                        <>
+                            <div key={user._id}>
+                                <Card key={user.email} user={user} index={index}></Card>
 
-                )
-            })
-            : <Slider></Slider>
+
+                            </div>
+                        </>
+                    )
+                })
+                : <Slider></Slider>}
+
+
+            <div className="likeButton">
+                <LikeButton></LikeButton>
+            </div>
+        </>
+>>>>>>> 7e1ecfec3a8c6ce8dfddca2698d0698bf471c514
+
     )
 }
 

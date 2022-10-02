@@ -1,0 +1,8 @@
+.likeButton {
+    Position: fixed;
+    bottom: 10vh;
+    width: 100%;
+    display: flex;
+
+    justify-content: space-evenly;
+}

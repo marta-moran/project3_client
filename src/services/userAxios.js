@@ -9,8 +9,11 @@ class UserAxios extends InitAxios {
         return this.axios.get('/me', {
             headers: {
                 'authorization': `Bearer ${token}`
+
             }
         }).then((response) => response.data);
+
+
     }
 
     edit(id) {

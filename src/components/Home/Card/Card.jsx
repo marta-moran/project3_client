@@ -34,6 +34,8 @@ function Card({ oneUser }) {
                     <h3 style={{ color: 'white' }}>{oneUser.username}</h3>
                 </div>
             </TinderCard>
+
+            {lastDirection ? console.log({ lastDirection }) : null}
         </>
     )
 }
