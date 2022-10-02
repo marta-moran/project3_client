@@ -26,37 +26,29 @@ function Home() {
 
 
     return (
-
-<<<<<<< HEAD
-        user ?
-            newUsers.map((oneUser) => {
-                return (
-                    <div key={oneUser._id} className="flex-cards">
-                        <Card key={oneUser.email} oneUser={oneUser}></Card>
-                    </div>
-=======
         <>
-            {user ?
-                newUsers.map((user, index) => {
-                    console.log(index)
-                    return (
-                        <>
-                            <div key={user._id}>
-                                <Card key={user.email} user={user} index={index}></Card>
+            {
+                user ?
+                    newUsers.map((user, index) => {
+                        console.log(index)
+                        return (
+                            <>
+                                <div key={user._id}>
+                                    <Card key={user.email} user={user} index={index}></Card>
 
 
-                            </div>
-                        </>
-                    )
-                })
-                : <Slider></Slider>}
+                                </div>
+                            </>
+                        )
+                    })
+                    : <Slider></Slider>
 
-
+            }
             <div className="likeButton">
                 <LikeButton></LikeButton>
+                {/* dislikeButton */}
             </div>
         </>
->>>>>>> 7e1ecfec3a8c6ce8dfddca2698d0698bf471c514
 
     )
 }

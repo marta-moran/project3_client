@@ -8,6 +8,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 function LikeButton() {
     return (
+        //separar cada botón en un componente
         <Stack direction="row" spacing={4} >
             <IconButton size='large' sx={{ color: red[500] }} >
                 <ClearIcon sx={{ fontSize: 65 }} />
