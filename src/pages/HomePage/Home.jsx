@@ -7,12 +7,11 @@ import './HomeStyle.css'
 
 function Home() {
     // const { user, isLoading, isLoggedIn, logOut } = useContext(AuthContext);
-    const { user, storeToken, authentication } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const [newUsers, setNewUsers] = useState([])
 
     useEffect(() => {
-        authentication()
         userAxios.getAllPeople()
             .then((users) => {
                 setNewUsers(users)
@@ -23,10 +22,10 @@ function Home() {
     return (
 
         user ?
-            newUsers.map((user) => {
+            newUsers.map((oneUser) => {
                 return (
-                    <div key={user._id} className="flex-cards">
-                        <Card key={user.email} user={user}></Card>
+                    <div key={oneUser._id} className="flex-cards">
+                        <Card key={oneUser.email} oneUser={oneUser}></Card>
                     </div>
 
                 )
