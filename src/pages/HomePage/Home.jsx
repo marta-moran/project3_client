@@ -38,6 +38,8 @@ function Home() {
                                 <Card key={user.email} user={user} index={index}></Card>
 
 
+
+
                             </div>
                         </>
                     )
@@ -45,9 +47,6 @@ function Home() {
                 : <Slider></Slider>}
 
 
-            <div className="likeButton">
-                <LikeButton></LikeButton>
-            </div>
         </>
 
     )
