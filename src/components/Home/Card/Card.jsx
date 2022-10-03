@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../../context/auth.context'
 import './TinderCard.css'
 import userAxios from "../../../services/userAxios";
+
 // import { useNavigate } from 'react-router-dom';
 
 function Card({ oneUser }) {
@@ -28,15 +29,11 @@ function Card({ oneUser }) {
 
 
     return (
-        <>
-            <TinderCard className='swipe' key={oneUser.username} onSwipe={(dir) => swiped(dir, oneUser.username)}>
-                <div className='card' style={{ background: `url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*)` }}>
-                    <h3 style={{ color: 'white' }}>{oneUser.username}</h3>
-                </div>
-            </TinderCard>
-
-            {lastDirection ? console.log({ lastDirection }) : null}
-        </>
+        <TinderCard preventSwipe={["down", "up"]} className='swipe' key={oneUser._id} onSwipe={(dir) => swiped(dir, oneUser.username)}>
+            <div className='card' style={{ background: `url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*)` }}>
+                <h3 style={{ color: 'white' }}>{oneUser.username}</h3>
+            </div>
+        </TinderCard>
     )
 }
 
