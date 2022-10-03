@@ -17,15 +17,17 @@ class UserAxios extends InitAxios {
     }
 
     edit(id) {
-        return this.axios.get(`/edit/${id}`).then((response) => response.data)
+        return this.axios.put(`/edit/${id}`).then((response) => response.data)
     }
 
-    delete(token, id) {
-        return this.axios.get(`/delete/${id}`).then((response) => response.data)
+    delete(id) {
+        return this.axios.delete(`/delete/${id}`).then((response) => response.data)
     }
 
-    like(id) {
-        return this.axios.get(`/like/${id}`).then((response) => response.data)
+    like(id, body) {
+        console.log("hola?")
+        console.log(body)
+        return this.axios.put(`/like/${id}`, body).then((response) => response.data)
     }
 
     dislike(id) {
@@ -42,7 +44,7 @@ class UserAxios extends InitAxios {
     }
 
     getAllPeople() {
-        return this.axios.get('/').then(({ data }) => data)
+        return this.axios.get('/').then(({ data }) => data) //hacer q te salga todo el mundo menos tu
     }
     getOnePerson(id) {
         return this.axios.get(`/${id}`).then((response) => response.data)

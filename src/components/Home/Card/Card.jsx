@@ -1,28 +1,38 @@
 import TinderCard from 'react-tinder-card'
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
+import { AuthContext } from '../../../context/auth.context'
 import './TinderCard.css'
+import userAxios from "../../../services/userAxios";
 import LikeButton from '../../Buttons/LikeButton';
 import DislikeButton from '../../Buttons/LikeButton';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 
 
-function Card({ user }) {
+
+// import { useNavigate } from 'react-router-dom';
+
+function Card({ oneUser }) {
+    const { user } = useContext(AuthContext)
 
     const [lastDirection, setLastDirection] = useState()
 
     const swiped = (direction) => {
         setLastDirection(direction)
-        if (direction === 'right') {
-            console.log("HAS DADO A LIKE A -->", user._id)
-        } if (direction === 'left') {
-            console.log("HAS DADO DISLIKE-->", user._id)
-        }
+        console.log("like o dislike a", oneUser._id)
     }
 
-    const outOfFrame = () => {
-        // console.log(user.username + ' left the screen!')
-    }
+    useEffect(() => {
+        if (lastDirection === "right") {
+            userAxios.like(oneUser._id, user)
+                .then((user) => {
+                    console.log(user)
+                })
+                .catch(error => console.log(error))
+
+        }
+    })
+
 
     return (
         <>
