@@ -19,3 +19,7 @@
     position: absolute;
 
 }
+
+body {
+    padding: 0 !important;
+}

@@ -6,21 +6,30 @@ import Card from "../../components/Home/Card/Card";
 // import LikeButton from "../../components/Buttons/LikeButton";
 import '../../components/Buttons/Buttons.css'
 import './HomeStyle.css'
+import { MessageContext } from "../../context/message.context";
+import Message from '../../components/Toast/Toast'
 
 function Home() {
     // const { user, isLoading, isLoggedIn, logOut } = useContext(AuthContext);
     const { user } = useContext(AuthContext)
+    const { showMessage } = useContext(MessageContext)
 
     const [newUsers, setNewUsers] = useState([])
 
     useEffect(() => {
-        userAxios.getAllPeople()
+        // if (user) {
+        userAxios
+            .getAllPeople()
             .then((users) => {
                 setNewUsers(users)
-                console.log("MARTA NO ESTES TRISTE :(", newUsers)
+
+
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(""))
+        // }
     }, [])
+
+
 
     return (
         <>
@@ -34,10 +43,11 @@ function Home() {
                         )
                     })
                     : <Slider></Slider>
-
             }
 
+            {showMessage?.show && <Message />}
         </>
+
 
     )
 }

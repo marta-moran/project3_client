@@ -5,21 +5,35 @@ import { AuthContext } from '../../context/auth.context';
 import './Forms.css'
 import { Link } from 'react-router-dom';
 import MultiButton from '../Buttons/MultiButton'
+import Message from '../Toast/Toast';
+import { MessageContext } from '../../context/message.context'
 
 function LoginForm() {
 
     const [user, setUser] = useState({});
     const { storeToken, authentication } = useContext(AuthContext)
+    const { showMessage, setShowMessage } = useContext(MessageContext)
+    const [error, setError] = useState(false)
 
     const login = (eventHTML) => {
 
         eventHTML.preventDefault();
-        authAxios.login(user).then((response) => {
-            console.log(response)
+        authAxios.login(user)
+            .then((response) => {
+                console.log(response)
+                console.log(user)
+                storeToken(response.token)
+                authentication()
+                setShowMessage({ show: true, title: `Hola ${user.email}`, text: "🔥️a matchear🔥️" })
 
-            storeToken(response.token)
-            authentication()
-        })
+            })
+            .catch((response) => {
+                console.log(response)
+                if (response.code === "ERR_BAD_RESPONSE") {
+                    setError(true)
+                    setShowMessage({ show: true, title: `Error`, text: "Nombre y/o usuario incorrectos" })
+                }
+            })
     }
 
     const loginUser = (eventHTML) => {
@@ -49,6 +63,8 @@ function LoginForm() {
 
                 <p className='link-signup'>¿No tienes una cuenta?<Link to="/signup">Regístrate</Link></p>
             </Form>
+
+            {showMessage.show && <Message />}
         </div>
     )
 
