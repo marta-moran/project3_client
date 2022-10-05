@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import './TinderCard.css'
 import userAxios from "../../../services/userAxios";
 import ModalMsg from '../../Modal/Modal';
+import { Link } from 'react-router-dom';
+
 
 function Card({ oneUser }) {
     const [lastDirection, setLastDirection] = useState()
@@ -61,7 +63,14 @@ function Card({ oneUser }) {
 
             <TinderCard preventSwipe={["down", "up"]} className='swipe' key={oneUser._id} onSwipe={(dir) => swiped(dir, oneUser.username)}>
                 <div className='card' style={{ background: `url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*)` }}>
-                    <h3 style={{ color: 'white' }}>{oneUser.username}</h3>
+                    <div className='title-card'>
+                        <h2>{oneUser.username}</h2>
+                        <p>{oneUser.age}</p>
+                    </div>
+                    {oneUser.description !== "" && (
+                        <p>{oneUser.description}</p>
+                    )}
+                    <Link className="btn btn-dark mt-1" to={`/profile/${oneUser._id}`}>Ver perfil</Link>
                 </div>
             </TinderCard>
         </>
