@@ -14,12 +14,14 @@ function LoginForm() {
     const login = (eventHTML) => {
 
         eventHTML.preventDefault();
-        authAxios.login(user).then((response) => {
-            console.log(response)
+        authAxios
+            .login(user)
+            .then((response) => {
+                console.log(response)
 
-            storeToken(response.token)
-            authentication()
-        })
+                storeToken(response.token)
+                authentication()
+            })
     }
 
     const loginUser = (eventHTML) => {

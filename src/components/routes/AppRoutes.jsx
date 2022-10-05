@@ -12,9 +12,10 @@ const AppRoutes = () => {
             <Route path='/' element={<HomePage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/signup' element={<SignupPage />} />
+            <Route path='/profile' element={<ProfilePage />} />
+            <Route path='/chat' element={<ChatPage />} />
             <Route path='/profile/:id' element={<ProfilePage />} />
             <Route path='/matches' element={<MatchesPage />} />
-            <Route path='/chat' element={<ChatPage />} />
         </Routes>
     )
 }

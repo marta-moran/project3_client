@@ -6,22 +6,17 @@ class UserAxios extends InitAxios {
     }
 
     me(token) {
-        return this.axios.get('/me', {
-            headers: {
-                'authorization': `Bearer ${token}`
-
-            }
-        }).then((response) => response.data);
+        return this.axios.get('/me').then((response) => response.data);
 
 
     }
 
-    edit(id) {
-        return this.axios.put(`/edit/${id}`).then((response) => response.data)
+    edit(user) {
+        return this.axios.put('/profile/edit', user).then((response) => response.data)
     }
 
-    delete(id) {
-        return this.axios.delete(`/delete/${id}`).then((response) => response.data)
+    delete(user) {
+        return this.axios.delete('/profile/delete', user).then((response) => response.data)
     }
 
     like(id, body) {
@@ -39,8 +34,8 @@ class UserAxios extends InitAxios {
     }
 
     /* pensar mejor */
-    getProfile() {
-        return this.axios.get(`/profile`).then((response) => response.data)
+    getProfile(user) {
+        return this.axios.get('/profile', user).then((response) => response.data)
     }
 
     getAllPeople() {

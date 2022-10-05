@@ -17,7 +17,6 @@ function Home() {
         userAxios.getAllPeople()
             .then((users) => {
                 setNewUsers(users)
-                console.log("MARTA NO ESTES TRISTE :(", newUsers)
             })
             .catch(error => console.log(error))
     }, [])
