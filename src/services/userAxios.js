@@ -19,18 +19,21 @@ class UserAxios extends InitAxios {
         return this.axios.delete('/profile/delete', user).then((response) => response.data)
     }
 
-    like(id, body) {
-        console.log("hola?")
-        console.log(body)
-        return this.axios.put(`/like/${id}`, body).then((response) => response.data)
+    like(id) {
+        return this.axios.put(`/like/${id}`).then((response) => response.data)
     }
 
     dislike(id) {
-        return this.axios.get(`/dislike/${id}`).then((response) => response.data)
+        console.log("dando dislike")
+        return this.axios.put(`/dislike/${id}`).then((response) => response.data)
     }
 
-    matches() {
-        return this.axios.get(`/matches`).then((response) => response.data)
+    match(body) {
+
+        return this.axios.put(`/match`, body)
+            .then((response) => {
+                return response.data;
+            })
     }
 
     /* pensar mejor */

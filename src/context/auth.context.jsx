@@ -11,6 +11,7 @@ export const AuthProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState(null);
+    const [isMatch, setMatch] = useState(false)
 
     const navigate = useNavigate();
 
