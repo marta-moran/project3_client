@@ -2,13 +2,16 @@
     position: relative;
     width: 300px;
     padding: 20px;
-    /* max-width: 85vw; */
+    max-width: 85vw;
     height: 65vh;
     border-radius: 20px;
     background-size: cover !important;
     background-position: center !important;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.3);
     margin-top: 4vh;
+    margin-left: 5vh;
+
+
 }
 
 .tinderCards_cardsContainer {
@@ -17,8 +20,8 @@
 
 .swipe {
     position: absolute;
-
 }
+
 
 body {
     padding: 0 !important;

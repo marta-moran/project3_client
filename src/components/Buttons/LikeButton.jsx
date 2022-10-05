@@ -1,23 +1,15 @@
-import * as React from 'react';
+// import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import { pink } from '@mui/material/colors';
-import { red } from '@mui/material/colors';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ClearIcon from '@mui/icons-material/Clear';
+import { pink } from '@mui/material/colors';
 
-function LikeButton() {
+const DislikeButton = () => {
     return (
-        //separar cada botón en un componente
-        <Stack direction="row" spacing={4} >
-            <IconButton size='large' sx={{ color: red[500] }} >
-                <ClearIcon sx={{ fontSize: 65 }} />
-            </IconButton>
-            <IconButton sx={{ color: pink[100] }}>
-                <FavoriteBorderIcon sx={{ fontSize: 60 }} />
-            </IconButton>
-        </Stack>
-    );
+        <IconButton sx={{ color: pink[100] }}>
+            <FavoriteBorderIcon sx={{ fontSize: 60 }} />
+        </IconButton>
+    )
 }
 
-export default LikeButton
+export default DislikeButton

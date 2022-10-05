@@ -2,8 +2,17 @@ import TinderCard from 'react-tinder-card'
 import { useState, useEffect } from 'react';
 import './TinderCard.css'
 import userAxios from "../../../services/userAxios";
+<<<<<<< HEAD
 import ModalMsg from '../../Modal/Modal';
 import { Link } from 'react-router-dom';
+=======
+import LikeButton from '../../Buttons/LikeButton';
+import DislikeButton from '../../Buttons/LikeButton';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+
+
+>>>>>>> 299dcc69a9cae4ffe9e0129c778cd63ead818412
 
 
 function Card({ oneUser }) {
