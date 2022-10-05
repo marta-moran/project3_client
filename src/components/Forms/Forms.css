@@ -39,7 +39,7 @@ label {
     justify-content: center;
 }
 
-.main-content-signup input {
+.input-color input {
     border-radius: 0;
     margin: 3vh 0 10vh 0;
     border: 0px;
@@ -68,4 +68,32 @@ label {
     border: 3px solid pink;
     border-radius: 50px;
     width: 20%;
+}
+
+.checkboxes>input {
+    padding: 0;
+    margin: 0;
+}
+
+.checkboxes label {
+    font-size: 1em;
+    font-weight: 400;
+    margin-right: 2vw;
+
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    text-align: start;
+    border: 2px solid #eee;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 10px 0 #eee;
+    margin: 2vh 1vw 0 1vw;
+    padding: 20px 8px;
+    width: 40vw;
 }

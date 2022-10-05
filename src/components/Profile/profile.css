@@ -1,0 +1,53 @@
+.info-user {
+    margin-top: 2vh;
+}
+
+.info-user>.img-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 3vh;
+}
+
+img {
+    border-radius: 20px;
+}
+
+.info-user>.title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 10vw;
+}
+
+.info-user h2 {
+    font-weight: 700;
+}
+
+.info-user h3 {
+    padding-left: 5vw;
+    color: rgb(244, 78, 131);
+    font-size: 1.2em;
+}
+
+.description {
+    padding: 0 10vw;
+}
+
+.preferences {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.preferences p {
+    padding: 10px;
+    border: 2px solid #eee;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 10px 0 #eee;
+}
+
+.icon {
+    margin-top: 2em;
+    margin-left: 10vw;
+}

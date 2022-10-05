@@ -22,13 +22,10 @@ function Home() {
             .getAllPeople()
             .then((users) => {
                 setNewUsers(users)
-
-
             })
             .catch(error => console.log(""))
         // }
     }, [])
-
 
 
     return (
