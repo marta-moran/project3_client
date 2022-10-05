@@ -8,6 +8,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import * as React from 'react';
 import LoginIcon from '@mui/icons-material/Login';
 import './NavBar.css'
+import ProfileButton from "../Buttons/ProfileButton";
 
 function NavBar() {
     const { user, logOut } = React.useContext(AuthContext)
@@ -18,7 +19,16 @@ function NavBar() {
                     <img className="me-1" src={logo} alt='' style={{ width: '15%' }}></img>
                     <Nav className='me-auto'>
                         <Navbar.Brand as="span">
+
                             <Link className='link-react' to="/"><span>Pinter</span></Link>
+
+                        </Navbar.Brand>
+                    </Nav>
+                    <Nav className='me-auto'>
+                        <Navbar.Brand as="span">
+                            {
+                                user ? <Link to='/profile'> <ProfileButton ></ProfileButton> </Link> : null
+                            }
                         </Navbar.Brand>
                     </Nav>
                     <div className="flex-nav">

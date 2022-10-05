@@ -1,9 +1,13 @@
-import Profile from "../../components/Profile/Profile"
+import ProfileComponent from "../../components/Profile/ProfileComponent"
+
+
 
 const ProfilePage = () => {
     return (
 
-        <Profile></Profile>
+        <>
+            <ProfileComponent></ProfileComponent>
+        </>
     )
 
 }

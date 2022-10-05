@@ -5,8 +5,7 @@ import MultiButton from '../Buttons/MultiButton';
 import { Navigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-
-
+import Canvas from '../Canvas/Canvas'
 
 const SignUpForm = () => {
     const [user, setUser] = useState({})
@@ -37,6 +36,8 @@ const SignUpForm = () => {
 
         eventHTML.preventDefault();
         authAxios.signup(user).then((response) => {
+
+            //llamar a guardar canvas
             console.log("--------");
             console.log(response);
         }).then(() => setChange(true));
@@ -173,11 +174,24 @@ const SignUpForm = () => {
                                 <div className='logo-div'>
                                     <NavigateBeforeIcon sx={{ fontSize: 40 }} onClick={handleBack} />
                                 </div>
+                                <div className='logo-div'>
+                                    <NavigateNextIcon sx={{ fontSize: 40 }} onClick={handleChange} />
+                                </div>
                             </div>
-                            <MultiButton variant='primary' type='submit' onChange={signUp} nameButton={"Registrarse"}>
-                                Registrarse
-
-                            </MultiButton>
+                        </>
+                    }
+                    {
+                        formFields === 4 &&
+                        <>
+                            <Canvas name="picture" setCanvas={createNewUser}></Canvas>
+                            <div className='flex-buttons'>
+                                <div className='logo-div'>
+                                    <NavigateBeforeIcon sx={{ fontSize: 40 }} onClick={handleBack} />
+                                </div>
+                                <MultiButton variant='primary' type='submit' onChange={signUp} nameButton={"Registrarse"}>
+                                    Registrarse
+                                </MultiButton>
+                            </div>
                         </>
                     }
                     {change && (<Navigate to="/login"></Navigate>)}
