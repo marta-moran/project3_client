@@ -1,14 +1,14 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { AuthContext } from "../../context/auth.context"
 import userAxios from "../../services/userAxios"
 import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import * as React from 'react';
+import './Forms.css'
 
 
 const ProfileComponent = () => {
 
-    const { logOut } = React.useContext(AuthContext)
+    const { logOut } = useContext(AuthContext)
     const { user } = useContext(AuthContext)
     const [UserEdit, setUser] = useState(user)
     const navigate = useNavigate();
@@ -39,12 +39,10 @@ const ProfileComponent = () => {
             })
     }
 
-
-
     return (
-        <Container className='main-content-signup'>
+        <Container className='main-content-signup input-color'>
             <>
-                < Form onSubmit={updateUser} >
+                <Form onSubmit={updateUser} >
                     <Form.Group className='mb-3'>
                         <Form.Label>Nombre</Form.Label>
                         <Form.Control

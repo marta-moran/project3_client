@@ -1,4 +1,4 @@
-import ProfileComponent from "../../components/Profile/ProfileComponent"
+import Profile from "../../components/Profile/Profile"
 
 
 
@@ -6,7 +6,7 @@ const ProfilePage = () => {
     return (
 
         <>
-            <ProfileComponent></ProfileComponent>
+            <Profile></Profile>
         </>
     )
 

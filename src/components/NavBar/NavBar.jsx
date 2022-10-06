@@ -27,7 +27,7 @@ function NavBar() {
                     <Nav className='me-auto'>
                         <Navbar.Brand as="span">
                             {
-                                user ? <Link to='/profile'> <ProfileButton ></ProfileButton> </Link> : null
+                                user ? <Link to='/edit'> <ProfileButton ></ProfileButton> </Link> : null
                             }
                         </Navbar.Brand>
                     </Nav>

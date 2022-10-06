@@ -17,7 +17,6 @@ function Canvas({ setCanvas }) {
     return (
         <div>
             <CanvasDraw
-
                 style={{ border: '1px solid', borderRadius: '20px' }}
                 brushRadius={1}
                 hideGrid={false}
@@ -27,7 +26,7 @@ function Canvas({ setCanvas }) {
             />
 
             <Button onClick={saveCanvas} >Save</Button>
-        </div >
+        </div>
     )
 
 }
