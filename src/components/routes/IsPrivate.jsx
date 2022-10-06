@@ -17,4 +17,19 @@ const isPrivate = (props) => {
 };
 
 
+/*
+    const { isLoading, user } = useContext(AuthContext)
+
+    if (isLoading) {
+        return <Loader />
+    }
+
+    if (!user) {
+        return <Navigate to="/login" />
+    }
+
+    return <Outlet />
+} */
+
+
 export default isPrivate;

@@ -8,15 +8,13 @@
     padding: 3vh;
     margin-left: 1vh;
     margin-right: 1vh;
+    margin-top: 5vh;
     border-top: 3px solid pink;
     border-radius: 5px;
 
 }
 
-
-
 .draw {
-
     width: 10vh;
     height: 10vh;
     border: 2px dotted rgba(166, 14, 143, 0.365);
@@ -31,7 +29,28 @@
 
 .users {
     color: rgb(223, 0, 238);
-
     background-color: #a417982b;
     opacity: 0.1;
+}
+
+.no-matches {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.no-matches h2 {
+    font-weight: 600;
+    margin-top: 15vh;
+}
+
+a {
+    text-decoration: none;
+    color: azure;
+}
+
+.list-group-item {
+    background-color: rgba(166, 14, 143, 0.365);
+    border: 0;
 }

@@ -7,8 +7,11 @@ import { Link } from 'react-router-dom';
 import MultiButton from '../Buttons/MultiButton'
 import Message from '../Toast/Toast';
 import { MessageContext } from '../../context/message.context'
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({});
     const { storeToken, authentication } = useContext(AuthContext)
@@ -24,6 +27,7 @@ function LoginForm() {
                 console.log(user)
                 storeToken(response.token)
                 authentication()
+                navigate('/');
                 setShowMessage({ show: true, title: `Hola ${user.email}`, text: "🔥️a matchear🔥️" })
 
             })

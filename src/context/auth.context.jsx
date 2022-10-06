@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { createContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import userAxios from '../services/userAxios';
 
 export const AuthContext = createContext();
@@ -13,7 +12,7 @@ export const AuthProvider = (props) => {
     const [user, setUser] = useState(null);
     const [isMatch, setMatch] = useState(false)
 
-    const navigate = useNavigate();
+
 
     const storeToken = (token) => {
         localStorage.setItem(LOCALSTORAGE_TOKEN, token);
@@ -32,7 +31,6 @@ export const AuthProvider = (props) => {
                     setUser(user);
                     setIsLoading(false);
                     setIsLoggedIn(true);
-                    navigate('/');
                 })
                 .catch((err) => {
                     console.log(err);

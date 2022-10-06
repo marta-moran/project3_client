@@ -42,7 +42,6 @@ class UserAxios extends InitAxios {
             })
     }
 
-
     /* pensar mejor */
     getProfile(user) {
         return this.axios.get('/profile', user).then((response) => response.data)

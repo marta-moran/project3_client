@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 import './Forms.css'
 
 
-
-
-
 const EditUser = () => {
 
     const { logOut } = useContext(AuthContext)

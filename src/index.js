@@ -8,15 +8,15 @@ import { MessageToast } from './context/message.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Router>
-      <AuthProvider>
-        <MessageToast>
-          <App />
-        </MessageToast>
-      </AuthProvider>
-    </Router>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Router>
+    <AuthProvider>
+      <MessageToast>
+        <App />
+      </MessageToast>
+    </AuthProvider>
+  </Router>
+  // </React.StrictMode>
 );
 
 
