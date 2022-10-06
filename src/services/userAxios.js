@@ -19,6 +19,12 @@ class UserAxios extends InitAxios {
         return this.axios.delete('/profile/delete', user).then((response) => response.data)
     }
 
+    /* ver tus matches */
+
+    viewMatches(user) {
+        return this.axios.get('/viewMatches', user).then((response) => response.data)
+    }
+
     like(id) {
         return this.axios.put(`/like/${id}`).then((response) => response.data)
     }
@@ -35,6 +41,7 @@ class UserAxios extends InitAxios {
                 return response.data;
             })
     }
+
 
     /* pensar mejor */
     getProfile(user) {

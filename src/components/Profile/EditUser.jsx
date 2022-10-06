@@ -6,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 import * as React from 'react';
 
 
-const ProfileComponent = () => {
+
+
+
+const EditUser = () => {
 
     const { logOut } = React.useContext(AuthContext)
     const { user } = useContext(AuthContext)
@@ -82,6 +85,6 @@ const ProfileComponent = () => {
 
 
 
-export default ProfileComponent
+export default EditUser
 
 

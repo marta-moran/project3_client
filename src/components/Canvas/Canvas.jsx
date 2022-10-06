@@ -14,19 +14,30 @@ function Canvas({ setCanvas }) {
         console.log(typeof data)
     }
 
+    const clearCanvas = () => {
+        firstCanvas.current.clear()
+    }
+
+
+
     return (
         <div>
             <CanvasDraw
 
                 style={{ border: '1px solid', borderRadius: '20px' }}
-                brushRadius={1}
+                brushRadius={3}
                 hideGrid={false}
                 canvasWidth={300}
                 canvasHeight={300}
                 ref={firstCanvas}
+                lazyRadius={0}
+
             />
 
             <Button onClick={saveCanvas} >Save</Button>
+            <Button onClick={clearCanvas} >Clear</Button>
+
+
         </div >
     )
 

@@ -119,7 +119,7 @@ const SignUpForm = () => {
                     {
                         formFields === 4 &&
                         <>
-                            <Canvas name="picture" setCanvas={createNewUser}></Canvas>
+                            <Canvas name="picture" setCanvas={createNewUser} ></Canvas>
                             <div className='flex-buttons'>
                                 <div className='logo-div'>
                                     <NavigateBeforeIcon sx={{ fontSize: 40 }} onClick={handleBack} />

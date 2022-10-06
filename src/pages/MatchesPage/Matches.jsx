@@ -1,12 +1,12 @@
-import Canvas from "../../components/Canvas/Canvas"
+import MatchesList from "../../components/MatchesList/MatchesList"
 
 const MatchesPage = () => {
 
     return (
         <>
-            <h1>holaaa</h1>
 
-            <Canvas></Canvas>
+            <MatchesList></MatchesList>
+
         </>
 
 

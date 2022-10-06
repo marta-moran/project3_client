@@ -10,6 +10,10 @@ import LoginIcon from '@mui/icons-material/Login';
 import './NavBar.css'
 import ProfileButton from "../Buttons/ProfileButton";
 
+import LocalFireDepartment from "@mui/icons-material/LocalFireDepartment";
+import { IconButton } from "@mui/material";
+
+
 function NavBar() {
     const { user, logOut } = React.useContext(AuthContext)
     return (
@@ -27,7 +31,7 @@ function NavBar() {
                     <Nav className='me-auto'>
                         <Navbar.Brand as="span">
                             {
-                                user ? <Link to='/profile'> <ProfileButton ></ProfileButton> </Link> : null
+                                user ? <IconButton> <Link to='/edit'> <ProfileButton ></ProfileButton> </Link> </IconButton> : null
                             }
                         </Navbar.Brand>
                     </Nav>
@@ -39,8 +43,18 @@ function NavBar() {
                                         user ? <LogoutIcon sx={{ fontSize: 40, color: 'purple' }} onClick={() => logOut()}></LogoutIcon> : <LoginIcon sx={{ fontSize: 40, color: 'pink' }}></LoginIcon>
                                     }
 
+
                                 </Link>
                             </Nav.Link>
+                            <Nav className='me-auto'>
+                                <Navbar.Brand as="span">
+                                    {
+
+                                        user ? <IconButton><Link to='/matches'> <LocalFireDepartment sx={{ fontSize: 40, color: 'red' }}></LocalFireDepartment> </Link> </IconButton> : null
+
+                                    }
+                                </Navbar.Brand>
+                            </Nav>
                         </Nav>
                     </div>
 
