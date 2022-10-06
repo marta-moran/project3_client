@@ -4,8 +4,8 @@ import LoginPage from '../../pages/LoginPage/Login'
 import SignupPage from '../../pages/SignUpPage/Signup'
 
 import MatchesPage from '../../pages/MatchesPage/Matches'
-// import ChatPage from '../../pages/MatchesPage/Matches'
-import EditPage from '../../pages/ProfilePage/ProfileEdit';
+import ChatPage from '../../pages/MatchesPage/Matches'
+import EditProfile from '../../pages/ProfilePage/EditProfile';
 
 const AppRoutes = () => {
     return (
@@ -13,8 +13,10 @@ const AppRoutes = () => {
             <Route path='/' element={<HomePage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/signup' element={<SignupPage />} />
-            <Route path='/edit' element={<EditPage />} />
-            {/* <Route path='/chat' element={<ChatPage />} /> */}
+            <Route path='/profile' element={<ProfilePage />} />
+            <Route path='/edit' element={<EditProfile />} />
+            <Route path='/chat' element={<ChatPage />} />
+            <Route path='/profile/:id' element={<ProfilePage />} />
             <Route path='/matches' element={<MatchesPage />} />
             {/* <Route path='/profile/:id' element={<ProfilePage />} /> */}
         </Routes>

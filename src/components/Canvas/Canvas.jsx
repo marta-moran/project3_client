@@ -23,7 +23,6 @@ function Canvas({ setCanvas }) {
     return (
         <div>
             <CanvasDraw
-
                 style={{ border: '1px solid', borderRadius: '20px' }}
                 brushRadius={3}
                 hideGrid={false}
