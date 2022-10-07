@@ -1,5 +1,5 @@
 
-import EditUser from "../../components/Profile/EditUser"
+import EditUser from "../../components/Forms/EditProfile"
 
 
 

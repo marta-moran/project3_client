@@ -3,7 +3,7 @@ import userAxios from "../../services/userAxios"
 import { AuthContext } from "../../context/auth.context"
 import '../MatchesList/MatchesList.css'
 import ListGroup from 'react-bootstrap/ListGroup';
-
+import { Link } from 'react-router-dom';
 
 
 const MatchesList = () => {
@@ -35,6 +35,7 @@ const MatchesList = () => {
 
                                         <ListGroup>
                                             <ListGroup.Item xs={10} variant="danger">
+
                                                 <h3>{u.username}</h3>
                                             </ListGroup.Item>
                                         </ListGroup>
