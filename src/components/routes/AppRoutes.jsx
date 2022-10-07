@@ -3,7 +3,6 @@ import { useState } from 'react';
 import HomePage from '../../pages/HomePage/Home'
 import LoginPage from '../../pages/LoginPage/Login'
 import SignupPage from '../../pages/SignUpPage/Signup'
-
 import MatchesPage from '../../pages/MatchesPage/Matches'
 import ChatPage from '../../pages/ChatPage/Chat'
 
@@ -14,7 +13,6 @@ import ProfileEdit from '../../pages/ProfilePage/ProfileEdit';
 
 
 const AppRoutes = () => {
-    const [nameUser, setNameUser] = useState("")
 
     return (
         <Routes>

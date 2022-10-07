@@ -40,7 +40,7 @@ function NavBar() {
                             <Nav.Link as='span'>
                                 <Link className='link-react me-2' to="/login">
                                     {
-                                        user ? <LogoutIcon sx={{ fontSize: 40, color: 'purple' }} onClick={() => logOut()}></LogoutIcon> : <LoginIcon sx={{ fontSize: 40, color: 'pink' }}></LoginIcon>
+                                        user ? null : <LoginIcon sx={{ fontSize: 40, color: 'pink' }}></LoginIcon>
                                     }
 
 

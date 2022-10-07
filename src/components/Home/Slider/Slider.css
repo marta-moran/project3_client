@@ -11,7 +11,9 @@
     align-items: center;
     justify-content: space-around;
     height: 100vh;
-    border-radius: 50px
+    border-radius: 50px;
+    opacity: 0.9;
+
 }
 
 .slide {
@@ -36,4 +38,44 @@
 
 .carousel-item {
     height: 200px;
+
+}
+
+.sliderLetters {
+    position: sticky !important;
+    color: #df20af;
+
+
+    border-radius: 20px;
+
+}
+
+.registerButton {
+
+
+
+    align-self: center;
+    background-color: rgb(223, 120, 199);
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 20px;
+
+}
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.sliderLetters p {
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.AppBackground {
+    background-image: url(/public/Background2.png);
+    background-repeat: round;
+    background-size: cover;
+
+    min-height: 100vh;
 }

@@ -79,10 +79,11 @@ const SignUpForm = () => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type='password' name='password' placeholder='Tu password' onChange={createNewUser} required />
                             </Form.Group>
-                            <div className='logo-div'>
-                                <NavigateNextIcon sx={{ fontSize: 40 }} onClick={handleChange} />
+                            <div className='flex-buttons'>
+                                <div className='logo-div'>
+                                    <NavigateNextIcon sx={{ fontSize: 40 }} onClick={handleChange} />
+                                </div>
                             </div>
-
                         </div>
                     }
                     {
