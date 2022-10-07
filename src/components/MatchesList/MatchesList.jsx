@@ -28,7 +28,7 @@ const MatchesList = () => {
             {
                 match.matches?.map(match => {
                     return match.users.map((u) => {
-                        if (u._id !== user._id) {
+                        if (u._id !== user?._id) {
                             return (
                                 <div className="matches" key={u._id}>
                                     <div>

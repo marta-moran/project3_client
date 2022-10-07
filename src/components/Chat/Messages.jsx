@@ -1,4 +1,9 @@
 import { useState } from "react"
+import ScrollToBottom from "react-scroll-to-bottom";
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 function Messages({ socket, username, room, messageList }) {
 
@@ -17,6 +22,9 @@ function Messages({ socket, username, room, messageList }) {
             }
 
             await socket.emit("send_message", messageData)
+            console.log(currentMessage)
+            // setCurrentMessage(""); //no funcionaaaaa
+            console.log(currentMessage)
         }
     }
 
@@ -26,26 +34,48 @@ function Messages({ socket, username, room, messageList }) {
     return (
         <div className="chat-window">
             <div className="chat-header">
-                <p>Live Chat</p>
+                <p>Chatea con tu match 💓️</p>
             </div>
-            <div className="chat-body"></div>
-            {messageList.map((messageContent) => {
-                console.log("sale?????", messageContent.message)
-                return <h2>{messageContent.message}</h2>
-            })}
-            <div className="message-content">
-                {/* <p>{messageContent.message}</p> */}
+            <div className="chat-body">
+                <ScrollToBottom className="message-container">
+                    {messageList.map((messageContent, index) => {
+                        return (
+                            <div
+                                className="message"
+                                id={username === messageContent.author ? "you" : "other"} key={index}
+                            >
+                                <div className="message-content">
+                                    <p>{messageContent.message}</p>
+                                </div>
+                                <div className="message-meta">
+                                    <p id="time">{messageContent.time}</p>
+                                    <p id="author">{messageContent.author}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </ScrollToBottom>
             </div>
-            <div className="message-meta">
-                {/* <p id="time">{messageContent.time}</p>
-                    <p id="author">{messageContent.author}</p> */}
-            </div>
+
             <div className="chat-footer">
-                <input type="text" placeholder="hey..." onChange={(event) => {
-                    setCurrentMessage(event.target.value)
-                }} />
+                <input
+                    type="text"
+                    placeholder="hey..."
+
+                    onChange={(event) => {
+                        setCurrentMessage(event.target.value)
+
+                    }}
+                    onKeyPress={(event) => {
+                        event.key === "Enter" && sendMessage();
+                    }}
+
+                />
                 <button onClick={sendMessage}>&#9658;</button>
             </div>
+
+            <Link to="/"><Button variant="dark" className="button"><ArrowBackIcon /></Button></Link>
+
         </div>
 
     )

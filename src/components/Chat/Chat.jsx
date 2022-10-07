@@ -3,8 +3,8 @@ import io from 'socket.io-client'
 import { AuthContext } from '../../context/auth.context';
 import userAxios from '../../services/userAxios';
 import Messages from './Messages';
-import MatchesList from "../../components/MatchesList/MatchesList"
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import './Chat.css'
 
 function Chat() {
 
@@ -17,7 +17,7 @@ function Chat() {
         console.log(socket)
     })
 
-    const [username, setUserName] = useState("")
+    const [username, setUsername] = useState("")
     const [room, setRoom] = useState("")
     const [showChat, setShowChat] = useState(false)
     const [messageList, setMessageList] = useState([])
@@ -25,11 +25,50 @@ function Chat() {
 
     const joinRoom = () => {
         if (user) {
-            console.log(username)
+
             socket.emit("join_room", id) //id
             setShowChat(true)
         }
+
+        userAxios.viewMatches(id)
+            .then((match) => {
+
+                console.log(match.matches[0].users)
+                match.matches[0].users.forEach(element => {
+                    if (element._id === user._id) {
+                        setUsername(element.username)
+                    }
+                    if (element._id !== user._id) {
+                        setUsername(element.username)
+
+                    }
+
+                })
+            })
     }
+    useEffect(() => {
+        if (user) {
+
+            socket.emit("join_room", id) //id
+            setShowChat(true)
+            userAxios.viewMatches(id)
+                .then((match) => {
+
+                    console.log(match.matches[0].users)
+                    match.matches[0].users.forEach(element => {
+                        if (element._id === user._id) {
+                            setUsername(element.username)
+                        }
+                        if (element._id !== user._id) {
+                            setUsername(element.username)
+
+                        }
+
+                    })
+                })
+        }
+
+    }, [user])
 
     useEffect(() => {
         socket.on("receive_message", (data) => {
@@ -39,33 +78,16 @@ function Chat() {
     }, [socket])
 
     return (
-        <>
-            <MatchesList></MatchesList>
-            <button onClick={joinRoom}>Chatear</button>
-            {/* <Link to={`/profile/${u._id}`}><h3>{u.username}</h3></Link> */}
+        <div className='chatPage'>
             {!showChat ? (
                 <div className="joinChatContainer">
                     <h3>Join A Chat</h3>
-                    <input
-                        type="text"
-                        placeholder="John..."
-                        onChange={(event) => {
-                            setUserName(event.target.value);
-                        }}
-                    />
-                    {/* <input
-                        type="text"
-                        placeholder="Room ID..."
-                        onChange={(event) => {
-                            setRoom(event.target.value);
-                        }}
-                    /> */}
-                    {/* <button onClick={joinRoom}>Join A Room</button> */}
+                    <button onClick={joinRoom}>Join A Room</button>
                 </div>
             ) : (
                 <Messages socket={socket} username={username} room={id} messageList={messageList} />
             )}
-        </>
+        </div>
     )
 }
 
