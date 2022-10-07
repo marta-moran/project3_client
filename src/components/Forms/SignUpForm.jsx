@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Form, Container } from 'react-bootstrap'
 import authAxios from '../../services/authAxios';
 import MultiButton from '../Buttons/MultiButton';
@@ -6,12 +6,16 @@ import { Navigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import Canvas from '../Canvas/Canvas'
+import { MessageContext } from '../../context/message.context'
 
 const SignUpForm = () => {
     const [user, setUser] = useState({})
     const [formFields, setFormFields] = useState(1)
     const [change, setChange] = useState(false);
     const [arrPreferences, setArrPreferences] = useState([])
+
+    const { showMessage, setShowMessage } = useContext(MessageContext)
+    const [error, setError] = useState(false)
 
     /* hacer en una única función */
     const handleChange = () => setFormFields(formFields + 1);
@@ -40,7 +44,16 @@ const SignUpForm = () => {
             //llamar a guardar canvas
             console.log("--------");
             console.log(response);
-        }).then(() => setChange(true));
+        })
+            .catch((response) => {
+                console.log(response)
+                if (response.code === "ERR_BAD_RESPONSE") {
+                    setError(true)
+                    setShowMessage({ show: true, title: `Error`, text: "Algo no ha ido bien" })
+                }
+            })
+            .then(() => setChange(true));
+
         //setChange(true);
     }
 

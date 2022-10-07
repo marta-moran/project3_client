@@ -33,9 +33,9 @@ const MatchesList = () => {
                                 <div className="matches" key={u._id}>
                                     <div>
                                         <ListGroup>
-                                            <ListGroup.Item xs={10}>
+                                            <ListGroup.Item xs={10} className="link">
                                                 {/* <Link to={`/profile/${u._id}`}><h3>{u.username}</h3></Link> */}
-                                                <Link to={`/chat/${match._id}`}><h3>{u.username}</h3></Link>
+                                                <Link to={`/chat/${match._id}`}><h4>{u.username}</h4></Link>
                                             </ListGroup.Item>
                                         </ListGroup>
                                     </div>

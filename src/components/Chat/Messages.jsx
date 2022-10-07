@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import ScrollToBottom from "react-scroll-to-bottom";
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ function Messages({ socket, username, room, messageList }) {
     console.log(socket)
 
     const [currentMessage, setCurrentMessage] = useState("")
+    const currentRef = useRef(null)
 
     const sendMessage = async () => {
         if (currentMessage !== "") {
@@ -23,10 +24,15 @@ function Messages({ socket, username, room, messageList }) {
 
             await socket.emit("send_message", messageData)
             console.log(currentMessage)
-            // setCurrentMessage(""); //no funcionaaaaa
+            setCurrentMessage(""); //no funcionaaaaa
             console.log(currentMessage)
         }
     }
+
+    useEffect(() => {
+        currentRef?.current.scrollIntoView({ behavior: 'smooth' })
+        console.log("PILLA LA REF??", currentRef)
+    }, [currentMessage])
 
 
     console.log("data->", messageList)
@@ -61,7 +67,7 @@ function Messages({ socket, username, room, messageList }) {
                 <input
                     type="text"
                     placeholder="hey..."
-
+                    value={currentMessage}
                     onChange={(event) => {
                         setCurrentMessage(event.target.value)
 
@@ -76,6 +82,7 @@ function Messages({ socket, username, room, messageList }) {
 
             <Link to="/"><Button variant="dark" className="button"><ArrowBackIcon /></Button></Link>
 
+            <div ref={currentRef}></div>
         </div>
 
     )
