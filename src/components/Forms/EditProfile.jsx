@@ -40,7 +40,7 @@ const EditUser = () => {
 
         const { value, name } = eventHTML.target;
         setUser({ ...UserEdit, [name]: value })
-        console.log(UserEdit)
+        // console.log(UserEdit)
     }
 
     const updateUser = (eventHTML) => {

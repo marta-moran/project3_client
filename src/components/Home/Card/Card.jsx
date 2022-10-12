@@ -12,7 +12,7 @@ function Card({ oneUser }) {
 
     const swiped = (direction) => {
         setLastDirection(direction)
-        console.log("ESTA ES LA DIRECCION SWIPEADA", direction)
+        // console.log("ESTA ES LA DIRECCION SWIPEADA", direction)
     }
 
 
@@ -30,10 +30,10 @@ function Card({ oneUser }) {
                     return userAxios.match({ user2 })
                 })
                 .then((match) => {
-                    console.log(match)
+                    // console.log(match)
                     if (match) {
                         setIsMatch(true)
-                        console.log(isMatch)
+                        // console.log(isMatch)
                     }
                 })
                 // .then(() => setIsMatch(false))
@@ -43,14 +43,14 @@ function Card({ oneUser }) {
         if (lastDirection === "left") {
             userAxios.dislike(oneUser._id)
                 .then((user) => {
-                    console.log(user)
+                    // console.log(user)
                 })
                 .catch(error => console.log(error))
         }
     }, [lastDirection])
 
     useEffect(() => {
-        console.log(isMatch)
+        // console.log(isMatch)
     }, [isMatch])
 
     function close() {

@@ -7,14 +7,14 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function Messages({ socket, username, room, messageList }) {
 
-    console.log(socket)
+    // console.log(socket)
 
     const [currentMessage, setCurrentMessage] = useState("")
-    const currentRef = useRef(null)
+    // const currentRef = useRef(null)
 
     const sendMessage = async () => {
         if (currentMessage !== "") {
-            console.log(currentMessage)
+            // console.log(currentMessage)
             const messageData = {
                 room: room,
                 author: username,
@@ -23,19 +23,18 @@ function Messages({ socket, username, room, messageList }) {
             }
 
             await socket.emit("send_message", messageData)
-            console.log(currentMessage)
+            // console.log(currentMessage)
             setCurrentMessage(""); //no funcionaaaaa
-            console.log(currentMessage)
+            // console.log(currentMessage)
         }
     }
 
-    useEffect(() => {
-        currentRef?.current.scrollIntoView({ behavior: 'smooth' })
-        console.log("PILLA LA REF??", currentRef)
-    }, [currentMessage])
+    // useEffect(() => {
+    //     currentRef?.current.scrollIntoView({ behavior: 'smooth' })
+    //     // console.log("PILLA LA REF??", currentRef)
+    // }, [currentMessage])
 
 
-    console.log("data->", messageList)
 
     return (
         <div className="chat-window">
@@ -82,7 +81,7 @@ function Messages({ socket, username, room, messageList }) {
 
             <Link to="/"><Button variant="dark" className="button"><ArrowBackIcon /></Button></Link>
 
-            <div ref={currentRef}></div>
+            {/* <div ref={currentRef}></div> */}
         </div>
 
     )

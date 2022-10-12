@@ -12,20 +12,16 @@ function Chat() {
     const { user } = useContext(AuthContext)
     const { id } = useParams()
 
-    // socket.emit('join', { message: 'holita' });
     socket.on('new message', (socket) => {
-        console.log(socket)
     })
 
     const [username, setUsername] = useState("")
-    const [room, setRoom] = useState("")
     const [showChat, setShowChat] = useState(false)
     const [messageList, setMessageList] = useState([])
 
 
     const joinRoom = () => {
         if (user) {
-
             socket.emit("join_room", id) //id
             setShowChat(true)
         }
@@ -33,17 +29,24 @@ function Chat() {
         userAxios.viewMatches(id)
             .then((match) => {
 
-                console.log(match.matches[0].users)
-                match.matches[0].users.forEach(element => {
-                    if (element._id === user._id) {
-                        setUsername(element.username)
-                    }
-                    if (element._id !== user._id) {
-                        setUsername(element.username)
+                // console.log(match.matches[0].users)
+                console.log(user);
+                setUsername(user.username);
+                // match.matches[0].users.map(element => {
+                //     // console.log("USUARIO LOGEADO", user)
+                //     console.log()
+                //     if (element._id === user._id) {
+                //         // // console.log("USER1", username)
+                //         setUsername(element.username)
+                //     }
+                //     if (element._id !== user._id) {
+                //         // console.log("entra? usuario q no es el emisor del mensaje")
+                //         // console.log("USER2->", username)
+                //         setUsername(element.username)
 
-                    }
+                //     }
 
-                })
+                // })
             })
     }
     useEffect(() => {
@@ -51,38 +54,44 @@ function Chat() {
 
             socket.emit("join_room", id) //id
             setShowChat(true)
-            userAxios.viewMatches(id)
-                .then((match) => {
+            setUsername(user.username);
 
-                    console.log(match.matches[0].users)
-                    match.matches[0].users.forEach(element => {
-                        if (element._id === user._id) {
-                            setUsername(element.username)
-                        }
-                        if (element._id !== user._id) {
-                            setUsername(element.username)
+            //         userAxios.viewMatches(id)
+            //             .then((match) => {
 
-                        }
+            //                 // console.log(match.matches[0].users)
+            //                 match.matches[0].users.forEach(element => {
+            //                     if (element._id === user._id) {
+            //                         // console.log(username)
+            //                         setUsername(element.username)
+            //                     }
+            //                     if (element._id !== user._id) {
+            //                         // console.log(username)
+            //                         setUsername(element.username)
 
-                    })
-                })
+            //                     }
+
+            //                 })
+            //             })
         }
 
     }, [user])
 
     useEffect(() => {
         socket.on("receive_message", (data) => {
-            console.log("sale?", data)
+            // console.log("sale?", data)
             setMessageList((list) => [...list, data])
         })
     }, [socket])
+
+
 
     return (
         <div className='chatPage'>
             {!showChat ? (
                 <div className="joinChatContainer">
                     <h3>Join A Chat</h3>
-                    <button onClick={joinRoom}>Join A Room</button>
+                    {/* <button onClick={joinRoom}>Join A Room</button> */}
                 </div>
             ) : (
                 <Messages socket={socket} username={username} room={id} messageList={messageList} />

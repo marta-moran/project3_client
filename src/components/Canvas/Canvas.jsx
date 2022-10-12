@@ -20,7 +20,7 @@ function Canvas({ setCanvas }) {
     }
 
     const changeColor = (e) => {
-        console.log(e)
+        // console.log(e)
         setColor(e.target.id)
     }
 

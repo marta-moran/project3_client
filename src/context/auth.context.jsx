@@ -33,7 +33,7 @@ export const AuthProvider = (props) => {
                     setIsLoggedIn(true);
                 })
                 .catch((err) => {
-                    console.log(err);
+                    // console.log(err);
                     setUser(null);
                     setIsLoading(false);
                     setIsLoggedIn(false);

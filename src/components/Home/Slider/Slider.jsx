@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './Slider.css'
-import { Button } from 'react-bootstrap';
-import { Navigate, useNavigate } from "react-router-dom";
+// import { Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 function Slider() {
 
     const [index, setIndex] = useState(0);
@@ -19,13 +19,7 @@ function Slider() {
                 <Carousel className='slider' controls={false} activeIndex={index} onSelect={handleSelect}>
                     <Carousel.Item >
                         <div>
-
                         </div>
-                        {/* <img
-                        className="d-block w-100"
-                        src="holder.js/800x400?text=First slide&bg=373940"
-                        alt=""
-                    /> */}
                         <Carousel.Caption>
                             <div className='sliderLetters'>
                                 <h3><strong>PINTER</strong></h3>
@@ -34,15 +28,8 @@ function Slider() {
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        {/* <img
-                        className="d-block w-100"
-                        src="holder.js/800x400?text=Second slide&bg=282c34"
-                        alt="Second slide"
-                    /> */}
                         <div>
-
                         </div>
-
                         <Carousel.Caption>
                             <div className='sliderLetters'>
                                 <h3><strong>¡Pinta tu perfil!</strong></h3>

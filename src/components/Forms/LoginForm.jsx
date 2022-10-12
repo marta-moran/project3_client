@@ -23,8 +23,8 @@ function LoginForm() {
         eventHTML.preventDefault();
         authAxios.login(user)
             .then((response) => {
-                console.log(response)
-                console.log(user)
+                // console.log(response)
+                // console.log(user)
                 storeToken(response.token)
                 authentication()
                 navigate('/');
@@ -32,7 +32,7 @@ function LoginForm() {
 
             })
             .catch((response) => {
-                console.log(response)
+                // console.log(response)
                 if (response.code === "ERR_BAD_RESPONSE") {
                     setError(true)
                     setShowMessage({ show: true, title: `Error`, text: "Nombre y/o usuario incorrectos" })

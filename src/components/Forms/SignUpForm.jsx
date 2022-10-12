@@ -32,7 +32,7 @@ const SignUpForm = () => {
     }
 
     useEffect(() => {
-        console.log(user)
+        // console.log(user)
     }, [arrPreferences, user])
 
 
@@ -42,11 +42,11 @@ const SignUpForm = () => {
         authAxios.signup(user).then((response) => {
 
             //llamar a guardar canvas
-            console.log("--------");
-            console.log(response);
+            // console.log("--------");
+            // console.log(response);
         })
             .catch((response) => {
-                console.log(response)
+                // console.log(response)
                 if (response.code === "ERR_BAD_RESPONSE") {
                     setError(true)
                     setShowMessage({ show: true, title: `Error`, text: "Algo no ha ido bien" })
@@ -60,13 +60,13 @@ const SignUpForm = () => {
     const createNewUser = (eventHTML) => {
 
         const { name, value } = eventHTML.target;
-        console.log()
+        // console.log()
 
         setUser({ ...user, [name]: value });
     };
 
     useEffect(() => {
-        console.log(user)
+        // console.log(user)
     }, [user])
 
 

@@ -13,13 +13,13 @@ function Profile() {
     useEffect(() => {
         userAxios.getOnePerson(id)
             .then((user) => {
-                console.log(user)
+                // console.log(user)
                 setOneUser(user)
             })
             .catch((err) => console.log(err))
     }, [])
 
-    console.log(oneUser)
+    // console.log(oneUser)
 
 
 

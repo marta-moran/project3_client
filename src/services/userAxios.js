@@ -30,7 +30,7 @@ class UserAxios extends InitAxios {
     }
 
     dislike(id) {
-        console.log("dando dislike")
+        // console.log("dando dislike")
         return this.axios.put(`/dislike/${id}`).then((response) => response.data)
     }
 
@@ -57,7 +57,7 @@ class UserAxios extends InitAxios {
     static getInstance() {
         if (!this.instance) {
             this.instance = new UserAxios();
-            console.log(this.instance)
+            // console.log(this.instance)
         }
         return this.instance;
     }

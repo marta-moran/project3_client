@@ -9,7 +9,7 @@ import { pink } from '@mui/material/colors';
 
 const DislikeButton = () => {
     let prueba = () => {
-        console.log('Hola, este click funciona')
+        // console.log('Hola, este click funciona')
     }
 
     return (

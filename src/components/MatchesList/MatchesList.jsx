@@ -17,11 +17,11 @@ const MatchesList = () => {
         userAxios.viewMatches()
             .then((matches) => {
                 setMatch(matches)
-                console.log(matches)
+                // console.log(matches)
             })
     }, [])
 
-    console.log(match)
+    // console.log(match)
 
     return (
         <div>
