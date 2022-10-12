@@ -113,6 +113,16 @@ label {
     text-align: center;
 }
 
-link-signup {
+.link-signup {
     color: purple;
+}
+
+.title-edit {
+    font-size: 1.5rem;
+    margin: 5vh
+}
+
+.singleword {
+    font-size: 1.5rem;
+    font-weight: 700;
 }

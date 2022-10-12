@@ -12,7 +12,6 @@ function Card({ oneUser }) {
 
     const swiped = (direction) => {
         setLastDirection(direction)
-        // console.log("ESTA ES LA DIRECCION SWIPEADA", direction)
     }
 
 
@@ -36,7 +35,6 @@ function Card({ oneUser }) {
                         // console.log(isMatch)
                     }
                 })
-                // .then(() => setIsMatch(false))
                 .catch(error => console.log(error))
         }
 
@@ -50,7 +48,6 @@ function Card({ oneUser }) {
     }, [lastDirection])
 
     useEffect(() => {
-        // console.log(isMatch)
     }, [isMatch])
 
     function close() {

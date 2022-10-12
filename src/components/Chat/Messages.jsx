@@ -49,13 +49,16 @@ function Messages({ socket, username, room, messageList }) {
                                 className="message"
                                 id={username === messageContent.author ? "you" : "other"} key={index}
                             >
-                                <div className="message-content">
-                                    <p>{messageContent.message}</p>
+                                <div className="flex-messages">
+                                    <div className="message-content">
+                                        <p>{messageContent.message}</p>
+                                    </div>
+                                    <div className="message-meta">
+                                        <p id="time">{messageContent.time}</p>
+                                        <p id="author">{messageContent.author}</p>
+                                    </div>
                                 </div>
-                                <div className="message-meta">
-                                    <p id="time">{messageContent.time}</p>
-                                    <p id="author">{messageContent.author}</p>
-                                </div>
+
                             </div>
                         )
                     })}

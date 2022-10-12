@@ -17,7 +17,6 @@ const SignUpForm = () => {
     const { showMessage, setShowMessage } = useContext(MessageContext)
     const [error, setError] = useState(false)
 
-    /* hacer en una única función */
     const handleChange = () => setFormFields(formFields + 1);
     const handleBack = () => setFormFields(formFields - 1);
 
@@ -32,47 +31,36 @@ const SignUpForm = () => {
     }
 
     useEffect(() => {
-        // console.log(user)
     }, [arrPreferences, user])
 
 
     const signUp = (eventHTML) => {
 
         eventHTML.preventDefault();
-        authAxios.signup(user).then((response) => {
-
-            //llamar a guardar canvas
-            // console.log("--------");
-            // console.log(response);
-        })
+        authAxios.signup(user)
+            .then((response) => {
+                console.log(response)
+            })
             .catch((response) => {
-                // console.log(response)
                 if (response.code === "ERR_BAD_RESPONSE") {
                     setError(true)
                     setShowMessage({ show: true, title: `Error`, text: "Algo no ha ido bien" })
                 }
             })
             .then(() => setChange(true));
-
-        //setChange(true);
     }
 
     const createNewUser = (eventHTML) => {
 
         const { name, value } = eventHTML.target;
-        // console.log()
-
         setUser({ ...user, [name]: value });
     };
 
     useEffect(() => {
-        // console.log(user)
     }, [user])
 
 
     return (
-
-
         <div>
             <Container className='main-content-signup'>
                 <Form onSubmit={signUp}>
@@ -171,11 +159,7 @@ const SignUpForm = () => {
                                             <input type="checkbox" value="Vino" name="preferences" onChange={handleCheck} id="vino" />
                                         </div>
                                     </div>
-
                                 </div>
-                                {/* <Form.Select aria-label="Default select example" name='preferences' multiple={true} onChange={createNewUser} > */}
-
-                                {/* </Form.Select> */}
                             </Form.Group>
                             <Form.Group className='mb-3'>
                                 <Form.Label>Sobre mí</Form.Label>
@@ -209,13 +193,9 @@ const SignUpForm = () => {
                         </>
                     }
                     {change && (<Navigate to="/login"></Navigate>)}
-
                 </Form>
-
             </Container>
         </div>
-
-
     )
 }
 

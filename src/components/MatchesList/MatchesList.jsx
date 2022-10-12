@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/auth.context"
 import '../MatchesList/MatchesList.css'
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
+import TextsmsIcon from '@mui/icons-material/Textsms';
 
 
 const MatchesList = () => {
@@ -31,14 +32,17 @@ const MatchesList = () => {
                         if (u._id !== user?._id) {
                             return (
                                 <div className="matches" key={u._id}>
-                                    <div>
-                                        <ListGroup>
-                                            <ListGroup.Item xs={10} className="link">
-                                                {/* <Link to={`/profile/${u._id}`}><h3>{u.username}</h3></Link> */}
-                                                <Link to={`/chat/${match._id}`}><h4>{u.username}</h4></Link>
-                                            </ListGroup.Item>
-                                        </ListGroup>
-                                    </div>
+
+                                    <Link to={`/profile/${u._id}`}><h4>{u.username}</h4></Link>
+                                    <ListGroup>
+
+                                        <ListGroup.Item xs={10} className="link">
+                                            {/* <Link to={`/profile/${u._id}`}><h3>{u.username}</h3></Link> */}
+                                            <Link to={`/chat/${match._id}`}> <TextsmsIcon></TextsmsIcon></Link>
+
+                                        </ListGroup.Item>
+                                    </ListGroup>
+
 
                                     <div>
                                         <img className="draw" src={u.picture} alt="profile-img"></img>

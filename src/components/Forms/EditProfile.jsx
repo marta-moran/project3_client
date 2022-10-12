@@ -20,7 +20,10 @@ const EditUser = () => {
     const [UserEdit, setUser] = useState(user)
     const [arrPreferences, setArrPreferences] = useState([])
     const navigate = useNavigate();
+    const { isLoading, isLoggedIn } = useContext(AuthContext);
 
+
+    if (isLoading) return <h1>Loading...</h1>;
 
     const handleChange = () => setFormFields(formFields + 1);
     const handleBack = () => setFormFields(formFields - 1);
@@ -65,8 +68,11 @@ const EditUser = () => {
         navigate('/')
     }
 
+    console.log(user)
+
     return (
         <Container className='main-content-signup input-color'>
+            <h2 className="title-edit">Edita tu perfil <span className="singleword">{user.username}</span></h2>
             <Form onSubmit={updateUser} >
                 {
                     formFields === 1 &&
@@ -178,14 +184,8 @@ const EditUser = () => {
                     </>
 
                 }
-
-
-
-
-
-
             </Form>
-        </Container >
+        </Container>
     );
 };
 

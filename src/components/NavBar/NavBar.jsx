@@ -4,18 +4,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './logofake.svg'
 import { AuthContext } from "../../context/auth.context";
-import LogoutIcon from '@mui/icons-material/Logout';
-import * as React from 'react';
 import LoginIcon from '@mui/icons-material/Login';
 import './NavBar.css'
 import ProfileButton from "../Buttons/ProfileButton";
-
+import { useContext } from "react";
 import LocalFireDepartment from "@mui/icons-material/LocalFireDepartment";
 import { IconButton } from "@mui/material";
 
 
 function NavBar() {
-    const { user, logOut } = React.useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     return (
         <div>
             <Navbar className="navBar">

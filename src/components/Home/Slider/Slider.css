@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .slider-align {
     display: flex;
     justify-content: space-evenly;
@@ -18,7 +26,7 @@
 
 .slide {
     display: flex;
-    height: 75vh;
+    height: 70vh;
     width: 80vw;
     border-radius: 50px;
     background: #e0e0e0;
@@ -33,49 +41,41 @@
 .carousel-indicators [data-bs-target] {
     height: 30px;
     border-radius: 50%;
-    background-color: pink;
+    background-color: #ffafcc;
 }
 
 .carousel-item {
-    height: 200px;
+    height: 240px;
 
 }
 
-.sliderLetters {
-    position: sticky !important;
-    color: #df20af;
-
-
-    border-radius: 20px;
-
-}
 
 .registerButton {
+    padding: 12px 0 5px 0;
+    background-color: #ffafcc;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 40px;
+}
 
+.singleword {
+    color: #ffafcc;
+    font-size: 1.3rem;
+}
 
-
-    align-self: center;
-    background-color: rgb(223, 120, 199);
-    font-size: 1.5rem;
-    padding: 10px;
-    border-radius: 20px;
-
+.button-slideLetters {
+    margin-bottom: 5vh;
 }
 
 h3 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     font-weight: 700;
+    color: #353233;
 }
 
 .sliderLetters p {
     font-size: 1.15rem;
     font-weight: 500;
-}
-
-.AppBackground {
-    background-image: url(/public/Background2.png);
-    background-repeat: round;
-    background-size: cover;
-
-    min-height: 100vh;
+    color: #2d2d2f;
 }

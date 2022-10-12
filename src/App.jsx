@@ -10,9 +10,6 @@ function App() {
       <NavBar />
       <AppRoutes />
     </div>
-
-
-
   );
 }
 

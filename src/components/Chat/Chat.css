@@ -25,33 +25,6 @@ body {
     margin-bottom: 1rem;
 }
 
-/* .joinChatContainer input {
-    width: 210px;
-    height: 40px;
-    margin: 7px;
-    border: 2px solid #43a047;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 16px;
-}
-
-.joinChatContainer button {
-    width: 225px;
-    height: 50px;
-    margin: 7px;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 16px;
-    background: #43a047;
-    color: #fff;
-    cursor: pointer;
-}
-
-.joinChatContainer button:hover {
-    background: #2e7d32;
-} */
-
 .chat-window {
     width: 80vw;
     height: 70vh;
@@ -77,6 +50,11 @@ body {
     line-height: 45px;
 }
 
+.flex-messages {
+    display: flex;
+    flex-direction: column;
+}
+
 .chat-window .chat-body {
     height: calc(500px - (45px + 70px));
     border: 1px solid #263238;
@@ -100,6 +78,7 @@ body {
     height: auto;
     padding: 10px;
     display: flex;
+    align-items: flex-end
 }
 
 .chat-window .chat-body .message .message-content {
