@@ -8,8 +8,6 @@ import MultiButton from '../Buttons/MultiButton'
 import Message from '../Toast/Toast';
 import { MessageContext } from '../../context/message.context'
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../NavBar/NavBar';
-
 
 function LoginForm() {
 
@@ -48,34 +46,30 @@ function LoginForm() {
     }
 
     return (
-        <div>
-            <NavBar />
-            <div className='main-content'>
-                <Form onSubmit={login}>
-                    <Form.Group className='mb-3' >
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                            type='text'
-                            placeholder='user@user.com'
-                            onChange={loginUser}
-                            name='email'
-                        />
-                    </Form.Group>
-                    <Form.Group className='mb-3' >
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type='password' name='password' onChange={loginUser} placeholder='your password' />
-                    </Form.Group>
-                    <MultiButton className="submit-button" nameButton={"Login"}>
-                        Login
-                    </MultiButton>
+        <div className='main-content'>
+            <Form onSubmit={login}>
+                <Form.Group className='mb-3' >
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        type='text'
+                        placeholder='user@user.com'
+                        onChange={loginUser}
+                        name='email'
+                    />
+                </Form.Group>
+                <Form.Group className='mb-3' >
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type='password' name='password' onChange={loginUser} placeholder='your password' />
+                </Form.Group>
+                <MultiButton className="submit-button" nameButton={"Login"}>
+                    Login
+                </MultiButton>
 
-                    <p className='link-signup'>¿No tienes una cuenta?<Link to="/signup">Regístrate</Link></p>
-                </Form>
+                <p className='link-signup'>¿No tienes una cuenta?<Link to="/signup">Regístrate</Link></p>
+            </Form>
 
-                {showMessage.show && <Message />}
-            </div>
+            {showMessage.show && <Message />}
         </div>
-
     )
 
 }

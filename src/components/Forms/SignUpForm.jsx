@@ -7,7 +7,6 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import Canvas from '../Canvas/Canvas'
 import { MessageContext } from '../../context/message.context'
-import NavBar from '../NavBar/NavBar';
 
 const SignUpForm = () => {
     const [user, setUser] = useState({})
@@ -63,7 +62,6 @@ const SignUpForm = () => {
 
     return (
         <div>
-            <NavBar />
             <Container className='main-content-signup'>
                 <Form onSubmit={signUp}>
                     {
