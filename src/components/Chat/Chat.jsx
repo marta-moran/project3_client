@@ -8,7 +8,9 @@ import './Chat.css'
 
 function Chat() {
 
-    const socket = io('http://localhost:5005')
+    const URL = process.env.REACT_APP_BACK_END_URL
+
+    const socket = io(URL)
     const { user } = useContext(AuthContext)
     const { id } = useParams()
 
