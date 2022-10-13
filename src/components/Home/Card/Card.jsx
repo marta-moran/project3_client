@@ -4,6 +4,7 @@ import './TinderCard.css'
 import userAxios from "../../../services/userAxios";
 import ModalMsg from '../../Modal/Modal';
 import { Link } from 'react-router-dom';
+import NavBar from '../../NavBar/NavBar';
 
 
 function Card({ oneUser }) {
@@ -56,6 +57,7 @@ function Card({ oneUser }) {
 
     return (
         <>
+            <NavBar />
             <ModalMsg show={isMatch} handleClose={close} />
 
             <TinderCard preventSwipe={["down", "up"]} className='swipe' key={oneUser._id} onSwipe={(dir) => swiped(dir, oneUser.username)}>
