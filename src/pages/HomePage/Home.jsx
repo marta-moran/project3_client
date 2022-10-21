@@ -10,14 +10,13 @@ import { MessageContext } from "../../context/message.context";
 import Message from '../../components/Toast/Toast'
 
 function Home() {
-    // const { user, isLoading, isLoggedIn, logOut } = useContext(AuthContext);
+
     const { user } = useContext(AuthContext)
     const { showMessage } = useContext(MessageContext)
 
     const [newUsers, setNewUsers] = useState([])
 
     useEffect(() => {
-        // if (user) {
         userAxios
             .getAllPeople()
             .then((users) => {

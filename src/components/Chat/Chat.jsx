@@ -20,7 +20,7 @@ function Chat() {
     const [username, setUsername] = useState("")
     const [showChat, setShowChat] = useState(false)
     const [messageList, setMessageList] = useState([])
-
+    const [msgList, setMsgList] = useState({})
 
     const joinRoom = () => {
         if (user) {
@@ -30,62 +30,35 @@ function Chat() {
 
         userAxios.viewMatches(id)
             .then((match) => {
-
-                // console.log(match.matches[0].users)
-                console.log(user);
                 setUsername(user.username);
-                // match.matches[0].users.map(element => {
-                //     // console.log("USUARIO LOGEADO", user)
-                //     console.log()
-                //     if (element._id === user._id) {
-                //         // // console.log("USER1", username)
-                //         setUsername(element.username)
-                //     }
-                //     if (element._id !== user._id) {
-                //         // console.log("entra? usuario q no es el emisor del mensaje")
-                //         // console.log("USER2->", username)
-                //         setUsername(element.username)
-
-                //     }
-
-                // })
             })
     }
+
     useEffect(() => {
         if (user) {
-
             socket.emit("join_room", id) //id
             setShowChat(true)
             setUsername(user.username);
-
-            //         userAxios.viewMatches(id)
-            //             .then((match) => {
-
-            //                 // console.log(match.matches[0].users)
-            //                 match.matches[0].users.forEach(element => {
-            //                     if (element._id === user._id) {
-            //                         // console.log(username)
-            //                         setUsername(element.username)
-            //                     }
-            //                     if (element._id !== user._id) {
-            //                         // console.log(username)
-            //                         setUsername(element.username)
-
-            //                     }
-
-            //                 })
-            //             })
         }
 
     }, [user])
 
     useEffect(() => {
         socket.on("receive_message", (data) => {
-            // console.log("sale?", data)
             setMessageList((list) => [...list, data])
         })
     }, [socket])
 
+    useEffect(() => {
+
+        userAxios.getMessages(id)
+            .then(msg => {
+                setMsgList(msg)
+            })
+            .catch(error => console.log(error))
+
+
+    }, [])
 
 
     return (
@@ -96,7 +69,7 @@ function Chat() {
                     {/* <button onClick={joinRoom}>Join A Room</button> */}
                 </div>
             ) : (
-                <Messages socket={socket} username={username} room={id} messageList={messageList} />
+                <Messages socket={socket} username={username} room={id} messageList={messageList} msgList={msgList} />
             )}
         </div>
     )

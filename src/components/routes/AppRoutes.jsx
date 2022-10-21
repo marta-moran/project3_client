@@ -25,6 +25,8 @@ const AppRoutes = () => {
             <Route path='/edit' element={<ProfileEdit />} />
         </Routes>
     )
+
+
 }
 
 export default AppRoutes

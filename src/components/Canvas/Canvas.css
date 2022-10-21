@@ -2,17 +2,6 @@
     touch-action: none;
 }
 
-.paintButtons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin-top: 1vh;
-
-
-}
 
 .canvasDraw {
     display: flex;
@@ -21,4 +10,51 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+}
+
+.buttons-div>button {
+    padding: 1em 1em
+}
+
+
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 2em;
+
+}
+
+.paintButtons>button {
+    padding: 1em 1em
+}
+
+#color-input {
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: 1em;
+}
+
+#color-input::-moz-color-swatch {
+    border-radius: 15px;
+    border: none;
+}
+
+#color-input::-webkit-color-swatch {
+    border-radius: 15px;
+    border: none;
+}
+
+#color-input::color-swatch {
+    border-radius: 15px;
+    border: none;
 }

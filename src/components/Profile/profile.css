@@ -14,7 +14,7 @@ img {
 
 .info-user>.title {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-start;
     padding: 0 10vw;
 }
@@ -25,7 +25,7 @@ img {
 
 .info-user h3 {
     padding-left: 5vw;
-    color: rgb(244, 78, 131);
+    color: #f44e82;
     font-size: 1.2em;
 }
 
@@ -48,6 +48,9 @@ img {
 }
 
 .icon {
-    margin-top: 2em;
+    margin-top: 1vh;
     margin-left: 10vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
 }

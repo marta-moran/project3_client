@@ -70,15 +70,15 @@ const SignUpForm = () => {
                             <Form.Group className='mb-3'>
                                 <Form.Label>Nombre</Form.Label>
                                 <Form.Control
-                                    type='text' name='username' placeholder='Pepe, Ana...' onChange={createNewUser} required />
+                                    type='text' name='username' placeholder='name' onChange={createNewUser} required />
                             </Form.Group>
                             <Form.Group className='mb-3'>
                                 <Form.Label>email</Form.Label>
-                                <Form.Control type='email' name='email' placeholder='Pepe@pepe.com' onChange={createNewUser} required />
+                                <Form.Control type='email' name='email' placeholder='pepe@pepe.com' onChange={createNewUser} required />
                             </Form.Group>
                             <Form.Group className='mb-3'>
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type='password' name='password' placeholder='Tu password' onChange={createNewUser} required />
+                                <Form.Control type='password' name='password' placeholder='password' onChange={createNewUser} required />
                             </Form.Group>
                             <div className='flex-buttons'>
                                 <div className='logo-div'>
@@ -92,12 +92,12 @@ const SignUpForm = () => {
                         <div className='input-color'>
                             <Form.Group className='mb-3'>
                                 <Form.Label>Edad</Form.Label>
-                                <Form.Control type='number' name='age' placeholder='25' onChange={createNewUser} />
+                                <Form.Control type='number' name='age' onChange={createNewUser} />
                             </Form.Group>
-                            <Form.Group className='mb-3'>
+                            <Form.Group className='mb-5'>
                                 <Form.Label>Género</Form.Label>
                                 <Form.Select aria-label="Default select example" name='gender' onChange={createNewUser}>
-                                    <option>Open this select menu</option>
+                                    <option>Selecciona género</option>
                                     <option value="woman">Mujer</option>
                                     <option value="man">Hombre</option>
                                     <option value="other">Otro</option>
@@ -161,12 +161,12 @@ const SignUpForm = () => {
                                     </div>
                                 </div>
                             </Form.Group>
-                            <Form.Group className='mb-3'>
+                            <Form.Group className='mb-5 mt-5'>
                                 <Form.Label>Sobre mí</Form.Label>
                                 <Form.Control
                                     as="textarea"
                                     style={{ height: '100px' }}
-                                    onChange={createNewUser} />
+                                    onChange={createNewUser} name="description" placeholder='Me gusta mucho matchear, jugar a las cartas...' />
                             </Form.Group>
                             <div className='flex-buttons'>
                                 <div className='logo-div'>
@@ -182,7 +182,7 @@ const SignUpForm = () => {
                         formFields === 4 &&
                         <>
                             <Canvas name="picture" setCanvas={createNewUser} ></Canvas>
-                            <div className='flex-buttons'>
+                            <div className='flex-buttons mt-3'>
                                 <div className='logo-div'>
                                     <NavigateBeforeIcon sx={{ fontSize: 40 }} onClick={handleBack} />
                                 </div>

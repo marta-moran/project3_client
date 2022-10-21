@@ -8,7 +8,7 @@
     background-size: cover !important;
     background-position: center !important;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.3);
-    margin-top: 4vh;
+    margin-top: 5vh;
 }
 
 .tinderCards_cardsContainer {
@@ -35,14 +35,14 @@ body {
     font-weight: 700;
     font-size: 40px;
     text-align: start;
-    color: rgb(222, 222, 222);
+    color: rgb(42, 42, 42);
 }
 
 .card p {
     text-align: start;
     font-size: 1.2rem;
-    color: aliceblue;
-    font-weight: 400;
+    color: rgb(17, 17, 18);
+    font-weight: 500;
 }
 
 .title-card {
@@ -53,7 +53,43 @@ body {
 
 .title-card>p {
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 2vh;
     margin-left: 4vw;
+    color: #f29ba8;
+}
+
+.bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gender-icon {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-bottom: 11em;
+    color: whitesmoke;
+}
+
+.gender-icon div {
+    background-color: #3a3a3a;
+    padding: 0.2em;
+    border-radius: 30px;
 }

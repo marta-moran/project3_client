@@ -3,10 +3,14 @@ import { useState, useEffect } from 'react';
 import './TinderCard.css'
 import userAxios from "../../../services/userAxios";
 import ModalMsg from '../../Modal/Modal';
-import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import FemaleIcon from '@mui/icons-material/Female';
+import MaleIcon from '@mui/icons-material/Male';
+
 
 
 function Card({ oneUser }) {
+
     const [lastDirection, setLastDirection] = useState()
     const [isMatch, setIsMatch] = useState(false)
 
@@ -29,10 +33,8 @@ function Card({ oneUser }) {
                     return userAxios.match({ user2 })
                 })
                 .then((match) => {
-                    // console.log(match)
                     if (match) {
                         setIsMatch(true)
-                        // console.log(isMatch)
                     }
                 })
                 .catch(error => console.log(error))
@@ -54,26 +56,52 @@ function Card({ oneUser }) {
         setIsMatch(false)
     }
 
+    function link(id) {
+        window.location.href = "/profile/" + id
+    }
+
     return (
         <>
-            <ModalMsg show={isMatch} handleClose={close} />
+            <ModalMsg show={isMatch} handleClose={close} oneUser={oneUser.username} oneUserPicture={oneUser.picture} />
 
             <TinderCard preventSwipe={["down", "up"]} className='swipe' key={oneUser._id} onSwipe={(dir) => swiped(dir, oneUser.username)}>
                 <div className='card' style={{ background: `url(${oneUser.picture})` }}>
-                    <div className='title-card'>
-                        <h2>{oneUser.username}</h2>
-                        <p>{oneUser.age}</p>
+                    <div className='gender-icon'>
+                        <div>
+                            {
+                                oneUser.gender === "women" && (
+                                    <FemaleIcon></FemaleIcon>
+                                )
+                            }
+                            {
+                                oneUser.gender === "man" && (
+                                    <MaleIcon sx={{ fontSize: 40 }}></MaleIcon>
+                                )
+                            }
+                        </div>
                     </div>
-                    {oneUser.description !== "" && (
-                        <p>{oneUser.description}</p>
-                    )}
-                    <Link className="btn btn-dark mt-1" to={`/profile/${oneUser._id}`}>Ver perfil</Link>
+
+                    <div>
+                        <div className='title-card'>
+                            <h2>{oneUser.username}</h2>
+                            <p>{oneUser.age}</p>
+
+                        </div>
+                        {oneUser.description !== "" && (
+                            <p>{oneUser.description}</p>
+                        )}
+                    </div>
+
+
+                    <Button variant="dark" onClick={() => { link(oneUser._id) }} onTouchEnd={() => { link(oneUser._id) }}>Ver perfil</Button>
                 </div>
             </TinderCard>
         </>
 
     )
 }
+
+
 
 
 export default Card

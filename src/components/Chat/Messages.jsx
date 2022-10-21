@@ -1,20 +1,18 @@
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import ScrollToBottom from "react-scroll-to-bottom";
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import userAxios from '../../services/userAxios';
 
 
-function Messages({ socket, username, room, messageList }) {
 
-    // console.log(socket)
+function Messages({ socket, username, room, messageList, msgList }) {
 
     const [currentMessage, setCurrentMessage] = useState("")
-    // const currentRef = useRef(null)
 
     const sendMessage = async () => {
         if (currentMessage !== "") {
-            // console.log(currentMessage)
             const messageData = {
                 room: room,
                 author: username,
@@ -26,42 +24,69 @@ function Messages({ socket, username, room, messageList }) {
             // console.log(currentMessage)
             setCurrentMessage(""); //no funcionaaaaa
             // console.log(currentMessage)
+
+            userAxios.saveMessages(room, messageData)
+                .then(message => console.log(message))
+                .catch(error => console.log(error))
+
         }
+
     }
-
-    // useEffect(() => {
-    //     currentRef?.current.scrollIntoView({ behavior: 'smooth' })
-    //     // console.log("PILLA LA REF??", currentRef)
-    // }, [currentMessage])
-
-
 
     return (
         <div className="chat-window">
             <div className="chat-header">
                 <p>Chatea con tu match 💓️</p>
+                <Link to="/"><Button variant="dark" className="button"><ArrowBackIcon sx={{ color: 'black' }} /></Button></Link>
             </div>
             <div className="chat-body">
                 <ScrollToBottom className="message-container">
-                    {messageList.map((messageContent, index) => {
-                        return (
-                            <div
-                                className="message"
-                                id={username === messageContent.author ? "you" : "other"} key={index}
-                            >
-                                <div className="flex-messages">
-                                    <div className="message-content">
-                                        <p>{messageContent.message}</p>
+                    {
+                        msgList?.messages?.map((msg, index) => {
+                            console.log("msg---------->", username, msg.author)
+                            return (
+                                <div
+                                    className="message"
+                                    id={username === msg.author ? "you" : "other"} key={index}
+                                >
+                                    <div className="flex-messages">
+                                        <div className="message-content">
+                                            <p>{msg.text}</p>
+                                        </div>
+                                        <div className="message-meta">
+                                            <p id="time">{msg.time}</p>
+                                            <p id="author">{msg.author}</p>
+                                        </div>
                                     </div>
-                                    <div className="message-meta">
-                                        <p id="time">{messageContent.time}</p>
-                                        <p id="author">{messageContent.author}</p>
-                                    </div>
-                                </div>
 
-                            </div>
-                        )
-                    })}
+                                </div>
+                            )
+
+                        })
+                    }
+                    {
+                        messageList.map((messageContent, index) => {
+                            return (
+                                <div
+                                    className="message"
+                                    id={username === messageContent.author ? "you" : "other"} key={index}
+                                >
+                                    <div className="flex-messages">
+                                        <div className="message-content">
+                                            <p>{messageContent.message}</p>
+                                        </div>
+                                        <div className="message-meta">
+                                            <p id="time">{messageContent.time}</p>
+                                            <p id="author">{messageContent.author}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            )
+
+                        })
+                    }
+
                 </ScrollToBottom>
             </div>
 
@@ -81,10 +106,6 @@ function Messages({ socket, username, room, messageList }) {
                 />
                 <button onClick={sendMessage}>&#9658;</button>
             </div>
-
-            <Link to="/"><Button variant="dark" className="button"><ArrowBackIcon /></Button></Link>
-
-            {/* <div ref={currentRef}></div> */}
         </div>
 
     )

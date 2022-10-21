@@ -164,8 +164,11 @@ const EditUser = () => {
                         <div className='flex-buttons'>
                             <div className='logo-div'>
                                 <NavigateBeforeIcon sx={{ fontSize: 40 }} onClick={handleBack} />
-                            </div>
 
+                            </div>
+                            <div>
+                                <Button onClick={updateUser}>Actualizar</Button>
+                            </div>
                         </div>
                         <div className="dropdown">
                             <Dropdown>
@@ -174,7 +177,7 @@ const EditUser = () => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item onClick={updateUser}>Update</Dropdown.Item>
+                                    {/* <Dropdown.Item onClick={updateUser}>Update</Dropdown.Item> */}
                                     <Dropdown.Item onClick={deleteUser}>Delete</Dropdown.Item>
                                     <Dropdown.Item onClick={() => loginOut()}>LogOut</Dropdown.Item>
                                 </Dropdown.Menu>

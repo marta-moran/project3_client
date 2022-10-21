@@ -12,8 +12,6 @@ export const AuthProvider = (props) => {
     const [user, setUser] = useState(null);
     const [isMatch, setMatch] = useState(false)
 
-
-
     const storeToken = (token) => {
         localStorage.setItem(LOCALSTORAGE_TOKEN, token);
     };

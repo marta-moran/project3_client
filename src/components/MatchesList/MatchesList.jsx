@@ -2,55 +2,60 @@ import { useEffect, useState, useContext } from "react"
 import userAxios from "../../services/userAxios"
 import { AuthContext } from "../../context/auth.context"
 import '../MatchesList/MatchesList.css'
-import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import TextsmsIcon from '@mui/icons-material/Textsms';
-
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import MarkChatUnreadIcon from '@mui/icons-material/MarkChatUnread';
 
 const MatchesList = () => {
 
     const [match, setMatch] = useState({})
     const { user } = useContext(AuthContext)
-
-
+    // const [messages, setMessages] = useState()
+    let hasUnreadMessages = false
 
     useEffect(() => {
         userAxios.viewMatches()
             .then((matches) => {
                 setMatch(matches)
-                // console.log(matches)
             })
     }, [])
 
-    // console.log(match)
+    useEffect(() => {
+
+    })
+
 
     return (
         <div>
+            <h3 className="title-matches">Matches</h3>
+            <div className="line"></div>
             {
                 match.matches?.map(match => {
                     return match.users.map((u) => {
                         if (u._id !== user?._id) {
+                            console.log(match.messages)
                             return (
                                 <div className="matches" key={u._id}>
-
-                                    <Link to={`/profile/${u._id}`}><h4>{u.username}</h4></Link>
-                                    <ListGroup>
-
-                                        <ListGroup.Item xs={10} className="link">
-                                            {/* <Link to={`/profile/${u._id}`}><h3>{u.username}</h3></Link> */}
-                                            <Link to={`/chat/${match._id}`}> <TextsmsIcon></TextsmsIcon></Link>
-
-                                        </ListGroup.Item>
-                                    </ListGroup>
+                                    <div className="icon-chat-perfil">
+                                        <Link to={`/profile/${u._id}`}><Button variant="dark" className="view-profile">{u.username}</Button></Link>
+                                        <Link to={`/chat/${match._id}`}><MarkChatUnreadIcon sx={{ fontSize: 35, color: '#f65858' }}></MarkChatUnreadIcon></Link>
 
 
+                                        {/* {
+                                            match.messages.length === 0 && (
+                                                <Link to={`/chat/${match._id}`}><ChatBubbleOutlineIcon sx={{ fontSize: 35, color: 'black' }}></ChatBubbleOutlineIcon></Link>
+
+                                            )
+                                        } */}
+                                    </div>
                                     <div>
                                         <img className="draw" src={u.picture} alt="profile-img"></img>
                                     </div>
                                 </div>
                             )
                         }
-
+                        return console.log("holaaa")
                     })
                 }
                 )
@@ -65,7 +70,7 @@ const MatchesList = () => {
 
                 )
             }
-        </div >
+        </div>
     )
 }
 

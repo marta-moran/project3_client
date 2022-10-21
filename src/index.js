@@ -8,7 +8,6 @@ import { MessageToast } from './context/message.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
   <Router>
     <AuthProvider>
       <MessageToast>
@@ -16,7 +15,6 @@ root.render(
       </MessageToast>
     </AuthProvider>
   </Router>
-  // </React.StrictMode>
 );
 
 

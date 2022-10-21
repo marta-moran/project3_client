@@ -1,0 +1,12 @@
+.modal-body div {
+    height: 200px;
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: 600;
+}
+
+
+.modal-body span {
+
+    color: #f44e82
+}

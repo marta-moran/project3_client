@@ -7,8 +7,6 @@ class UserAxios extends InitAxios {
 
     me(token) {
         return this.axios.get('/me').then((response) => response.data);
-
-
     }
 
     edit(user) {
@@ -42,7 +40,6 @@ class UserAxios extends InitAxios {
             })
     }
 
-    /* pensar mejor */
     getProfile(user) {
         return this.axios.get('/profile', user).then((response) => response.data)
     }
@@ -52,6 +49,15 @@ class UserAxios extends InitAxios {
     }
     getOnePerson(id) {
         return this.axios.get(`/${id}`).then((response) => response.data)
+    }
+
+    getMessages(id) {
+        return this.axios.get(`/messages/${id}`).then((response) => response.data)
+    }
+
+    saveMessages(id, msg) {
+        console.log("BODY", msg)
+        return this.axios.put(`/saveMessage/${id}`, msg).then((response) => response.data)
     }
 
     static getInstance() {

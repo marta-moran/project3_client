@@ -2,12 +2,19 @@ import React, { useRef, useState } from "react";
 import { Button } from "react-bootstrap";
 import CanvasDraw from "react-canvas-draw";
 import './Canvas.css'
+import AddIcon from '@mui/icons-material/Add';
+import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import SaveIcon from '@mui/icons-material/Save';
+import DeleteIcon from '@mui/icons-material/Delete';
+import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 
 
 function Canvas({ setCanvas }) {
-
     const firstCanvas = useRef(null)
     const [color, setColor] = useState('red')
+    const [Radius, setRadius] = useState(1)
+
+    console.log(Radius)
 
 
     const saveCanvas = () => {
@@ -20,10 +27,24 @@ function Canvas({ setCanvas }) {
     }
 
     const changeColor = (e) => {
-        // console.log(e)
-        setColor(e.target.id)
+        setColor(e.target.value)
     }
 
+    const changeBrushSum = (e) => {
+        if (Radius <= 30) {
+            setRadius(parseInt(e.target.id) + (4))
+        }
+
+    }
+    const changeBrushRes = (e) => {
+        if (Radius !== 1) {
+            setRadius(parseInt(e.target.id) - (4))
+        }
+    }
+
+    const undoCanvas = () => {
+        firstCanvas.current.undo()
+    }
 
 
     return (
@@ -31,42 +52,33 @@ function Canvas({ setCanvas }) {
             <div className="canvasDraw">
                 <CanvasDraw
                     style={{ border: '1px solid', borderRadius: '20px' }}
-                    hideGrid={false}
+                    hideGrid={true}
                     canvasWidth={300}
                     canvasHeight={300}
                     ref={firstCanvas}
                     lazyRadius={0}
                     brushColor={color}
-
+                    brushRadius={Radius}
                 />
             </div>
-            <div className="paintButtons">
-                <div>
-                    <Button id='green' onClick={changeColor}>&#128154;</Button>
-                    <Button id='lightskyblue' onClick={changeColor}>&#128153;</Button>
-                    <Button id='purple' onClick={changeColor}>&#128156;</Button>
-                    <Button id='yellow' onClick={changeColor}>&#128155;</Button>
+            <div className="btn-container">
+                <div className="paintButtons">
+                    <div>
+                        <Button id={Radius} onClick={changeBrushSum} style={{ fontSize: '25px', fontWeight: 700 }}>+</Button>
+                        <input id="color-input" onChange={changeColor} type='color'></input>
+                        <Button id={Radius} onClick={changeBrushRes} style={{ fontSize: '25px', fontWeight: 700 }}>-</Button>
+                    </div>
                 </div>
-                <div>
-                    <Button id='black' onClick={changeColor}>&#x1F5A4;</Button>
-                    <Button id='red' onClick={changeColor}>&#128147;</Button>
-                    <Button id='orange' onClick={changeColor}>&#129505;</Button>
-                    <Button id='pink' onClick={changeColor}>&#128151;</Button>
+                <div className="buttons-div">
+
+                    <Button onClick={clearCanvas}><DeleteIcon></DeleteIcon></Button>
+                    <Button onClick={undoCanvas}><CleaningServicesIcon></CleaningServicesIcon></Button>
+                    <Button onClick={saveCanvas}><SaveIcon></SaveIcon></Button>
                 </div>
             </div>
-            <div>
-            </div>
-            <div className="paintButtons">
-                <Button onClick={saveCanvas} >Save</Button>
-                <Button onClick={clearCanvas} >Clear</Button>
-            </div>
-
-
         </div >
     )
-
 }
 
 export default Canvas
-
 
