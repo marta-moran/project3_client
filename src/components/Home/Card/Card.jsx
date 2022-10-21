@@ -69,7 +69,7 @@ function Card({ oneUser }) {
                     <div className='gender-icon'>
                         <div>
                             {
-                                oneUser.gender === "women" && (
+                                oneUser.gender === "woman" && (
                                     <FemaleIcon></FemaleIcon>
                                 )
                             }
