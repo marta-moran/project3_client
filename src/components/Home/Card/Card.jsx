@@ -70,7 +70,7 @@ function Card({ oneUser }) {
                         <div>
                             {
                                 oneUser.gender === "woman" && (
-                                    <FemaleIcon></FemaleIcon>
+                                    <FemaleIcon sx={{ fontSize: 40 }}></FemaleIcon>
                                 )
                             }
                             {
