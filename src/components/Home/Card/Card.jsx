@@ -66,21 +66,6 @@ function Card({ oneUser }) {
 
             <TinderCard preventSwipe={["down", "up"]} className='swipe' key={oneUser._id} onSwipe={(dir) => swiped(dir, oneUser.username)}>
                 <div className='card' style={{ background: `url(${oneUser.picture})` }}>
-                    <div className='gender-icon'>
-                        <div>
-                            {
-                                oneUser.gender === "woman" && (
-                                    <FemaleIcon sx={{ fontSize: 40 }}></FemaleIcon>
-                                )
-                            }
-                            {
-                                oneUser.gender === "man" && (
-                                    <MaleIcon sx={{ fontSize: 40 }}></MaleIcon>
-                                )
-                            }
-                        </div>
-                    </div>
-
                     <div>
                         <div className='title-card'>
                             <h2>{oneUser.username}</h2>
