@@ -1,6 +1,6 @@
 # Pinter
-Pinter es una aplicación de citas para gente que mira más alla del físico de las personas. En esta aplicación no te definirán tus fotos, si no el avatar que tú mismo/a dibujes. Podrás matchear con otras personas y chatear con ellas
-
+Pinter es una aplicación de citas para gente que mira más alla del físico de las personas. En esta aplicación no te definirán tus fotos, si no el avatar que tú mismo/a dibujes. Podrás matchear con otras personas y chatear con ellas.
+***
 ## Funcionalidades del proyecto 🔨
 - Dibujar el avatar de tu perfil
 - Hacer match con otros usuarios/as
@@ -34,7 +34,7 @@ Instrucciones para obtener una copia del proyecto en funcionamiento en tu máqui
 Para correr la aplicación:
 
     $ npm run dev
-***
+
 ## URLs 📍️
 
 Path | Description
