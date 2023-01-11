@@ -35,7 +35,7 @@ Para correr la aplicación:
 
     $ npm run dev
 ***
-### URLs 📍️
+## URLs 📍️
 
 Path | Description
 | --- | --- |
@@ -48,9 +48,9 @@ Path | Description
 | /chat/:id | Acceso al chat con un usuario concreto | 
 
 
-### Despliegue 📦️
+## Despliegue 📦️
 https://pinter-app.vercel.app/
 
-### Autores 🖊️
+## Autores 🖊️
 Héctor Villaescusa y Marta Morán
 
