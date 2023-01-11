@@ -49,7 +49,7 @@ Path | Description
 
 
 ### Despliegue 📦️
-<http://www.loquesea.com>
+https://pinter-app.vercel.app/
 
 ### Autores 🖊️
 Héctor Villaescusa y Marta Morán
