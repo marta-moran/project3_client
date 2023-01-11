@@ -27,11 +27,11 @@ Pinter es una aplicación de citas para gente que mira más alla del físico de 
 - Confeti
 
 ## Comenzando 🚀️
-Instrucciones para obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
+Instrucciones para obtener una copia del proyecto en funcionamiento en tu máquina local para probarlo.
 ### Prerrequisitos 📋️
     $ npm install
 
-To run the app:
+Para correr la aplicación:
 
     $ npm run dev
 ***
